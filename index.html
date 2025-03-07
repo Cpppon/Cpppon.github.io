@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlavicRP - Słowiański Serwer Minecraft Roleplay</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Slavic<span>RP</span></div>
+                <div class="nav-links">
+                    <a href="#home">Strona Główna</a>
+                    <a href="#about">O Serwerze</a>
+                    <a href="#features">Funkcje</a>
+                    <a href="#plugins">Pluginy</a>
+                    <a href="http://forum.slavicrp.pl" target="_blank">Forum</a>
+                    <a href="#gallery">Galeria</a>
+                    <a href="#join">Dołącz</a>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Witaj w świecie SlavicRP</h1>
+                <p>Zanurz się w słowiańskim uniwersum wypełnionym tajemnicami, pradawnymi bogami, legendami i prawdziwym klimatem roleplay. Odtwórz życie w dawnej Słowiańszczyźnie, zostań wojownikiem, kowalem, kupcem, kapłanem lub zwykłym osadnikiem.</p>
+                <div class="ip-display">
+                    <p id="server-ip">srv731529.hstgr.cloud:25565</p>
+                    <button class="copy-btn" onclick="copyIP()"><i class="fas fa-copy"></i></button>
+                </div>
+                <a href="#join" class="btn">Dołącz do Słowian</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">O Serwerze SlavicRP</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>SlavicRP to wyjątkowy serwer Minecraft, który przenosi graczy w świat dawnych Słowian. Stworzyliśmy immersyjne doświadczenie roleplay osadzone w słowiańskich realiach kulturowych, gdzie każdy gracz może tworzyć własną historię.</p>
+                    
+                    <p>Nasz świat wypełniony jest wiernie odtworzonymi słowiańskimi wioskami, grodami, świątyniami i tajemniczymi lasami zamieszkiwanymi przez istoty z mitologii słowiańskiej. Bogata historia, tradycje i system wierzeń stanowią tło dla rozgrywki.</p>
+                    
+                    <p>Jako członek społeczności SlavicRP wcielisz się w wybraną przez siebie rolę, będziesz rozwijać swoje umiejętności, budować, handlować, walczyć i wchodzić w interakcje z innymi graczami - wszystko to w unikatowym słowiańskim klimacie!</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/slavic-village.jpg" alt="Słowiańska osada">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Cechy Serwera</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-theater-masks"></i>
+                    <h3>Immersyjny Roleplay</h3>
+                    <p>Pełne zanurzenie w słowiańskim świecie z rozbudowanym systemem roleplay i wieloma możliwościami rozwoju postaci.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hammer"></i>
+                    <h3>Niestandardowe Craftingi</h3>
+                    <p>Odkrywaj słowiańskie receptury rzemieślnicze, twórz wyjątkową broń, narzędzia i magiczne artefakty.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-place-of-worship"></i>
+                    <h3>Słowiańskie Wierzenia</h3>
+                    <p>System wierzeń i obrzędów słowiańskich, możliwość uczestnictwa w świętach i ofiarach dla bogów.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>System Klanów</h3>
+                    <p>Twórz lub dołącz do słowiańskich klanów, buduj osady i walcz o terytorium z wrogimi plemionami.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Ekonomia i Handel</h3>
+                    <p>Rozbudowany system ekonomiczny ze słowiańską walutą i możliwością handlu między graczami.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Bogaty Świat</h3>
+                    <p>Pieczołowicie odtworzona słowiańska kraina z wioskami, grodami, lasami i miejscami kultu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="plugins" id="plugins">
+        <div class="container">
+            <h2 class="section-title">Nasze Pluginy</h2>
+            <div class="plugins-grid">
+                <div class="plugin-card">
+                    <h3>CustomCrafting</h3>
+                    <p>Unikalny system rzemiosła słowiańskiego z możliwością tworzenia specjalnych przedmiotów.</p>
+                </div>
+                <div class="plugin-card">
+                    <h3>BuilderCopy</h3>
+                    <p>Narzędzie do kopiowania budowli w stylu słowiańskim i przenoszenia ich w różne miejsca.</p>
+                </div>
+                <div class="plugin-card">
+                    <h3>AdminGUI</h3>
+                    <p>Zaawansowany interfejs dla administratorów do zarządzania serwerem.</p>
+                </div>
+                <div class="plugin-card">
+                    <h3>SlavicMythology</h3>
+                    <p>Dodaje elementy mitologii słowiańskiej, bóstwa i magiczne istoty.</p>
+                </div>
+                <div class="plugin-card">
+                    <h3>RPClasses</h3>
+                    <p>System klas i profesji charakterystycznych dla społeczności słowiańskiej.</p>
+                </div>
+                <div class="plugin-card">
+                    <h3>SlavicQuests</h3>
+                    <p>System zadań i misji opartych na słowiańskich legendach i wierzeniach.</p>
+                </div>
+                <div class="plugin-card">
+                    <h3>Towny</h3>
+                    <p>System osad i grodów słowiańskich z zarządzaniem terytorium.</p>
+                </div>
+                <div class="plugin-card">
+                    <h3>SlavicChat</h3>
+                    <p>System komunikacji z różnymi kanałami i zasięgami rozmów dla lepszego roleplay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Section -->
+    <section class="forum" id="forum">
+        <div class="container">
+            <h2 class="section-title">Forum Słowiańskie</h2>
+            <div class="forum-content">
+                <div class="forum-text">
+                    <p>Dołącz do naszej słowiańskiej społeczności na forum SlavicRP! To miejsce, gdzie możesz poznać innych graczy, dzielić się swoimi pomysłami, historiami postaci, screenshotami oraz być na bieżąco z wydarzeniami i aktualnościami serwera.</p>
+                    
+                    <p>Forum to również skarbnica wiedzy o słowiańskiej mitologii, zwyczajach i tradycjach, które pomogą Ci lepiej odnaleźć się w świecie naszego serwera.</p>
+                    
+                    <div class="forum-action-buttons">
+                        <a href="http://forum.slavicrp.pl" target="_blank" class="forum-btn primary">Przejdź do Forum</a>
+                        <a href="http://forum.slavicrp.pl/register" target="_blank" class="forum-btn secondary">Zarejestruj się</a>
+                    </div>
+                </div>
+                
+                <div class="forum-preview">
+                    <a href="http://forum.slavicrp.pl" target="_blank">
+                        <img src="images/forum-preview.jpg" alt="Forum SlavicRP">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Forum Section -->
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeria Serwera</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/main-castle.jpg" alt="Główny gród">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/perun-temple.jpg" alt="Świątynia Peruna">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/fishing-village.jpg" alt="Wioska rybacka">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/blacksmith.jpg" alt="Kuźnia">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/market.jpg" alt="Targ słowiański">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/spirit-forest.jpg" alt="Las duchów">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="join" id="join">
+        <div class="container">
+            <div class="join-content slavic-border">
+                <h2>Dołącz do słowiańskiej społeczności!</h2>
+                <p>Serwer jest dostępny 24/7. Uruchom Minecraft 1.20.6 i dołącz używając naszego adresu IP:</p>
+                <div class="ip-display">
+                    <p id="server-ip-join">srv731529.hstgr.cloud:25565</p>
+                    <button class="copy-btn" onclick="copyIPJoin()"><i class="fas fa-copy"></i></button>
+                </div>
+                <p>Dołącz również do naszej słowiańskiej drużyny na platformach:</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SlavicRP - Wszelkie prawa zastrzeżone | Niech bogowie mają Cię w swojej opiece!</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ip = document.getElementById('server-ip').textContent;
+            navigator.clipboard.writeText(ip)
+                .then(() => {
+                    alert('Adres IP skopiowany do schowka!');
+                })
+                .catch(err => {
+                    console.error('Nie udało się skopiować IP: ', err);
+                });
+        }
+        
+        function copyIPJoin() {
+            const ip = document.getElementById('server-ip-join').textContent;
+            navigator.clipboard.writeText(ip)
+                .then(() => {
+                    alert('Adres IP skopiowany do schowka!');
+                })
+                .catch(err => {
+                    console.error('Nie udało się skopiować IP: ', err);
+                });
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
