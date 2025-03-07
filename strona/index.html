@@ -271,6 +271,26 @@
             object-fit: cover;
         }
         
+        /* Informacja o kliknięciu */
+        .gallery-item::after {
+            content: 'Kliknij, aby powiększyć';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
         /* Styl dla modalu (wyskakującego okna z obrazem) */
         .modal {
             display: none;
@@ -431,7 +451,7 @@
         <div class="container">
             <div class="coming-soon">
                 <h1>Serwer w Budowie</h1>
-                <p>Witaj w świecie SlavicRP! Zapraszamy Cię do wyjątkowego projektu – słowiańskiego serwera Minecraft Roleplay, który obecnie znajduje się w fazie tworzenia. Nasz zespół z pasją pracuje nad tym, aby przenieść Cię w fascynujący świat dawnych Słowian, pełen autentycznych detali i niepowtarzalnej atmosfery. Szykujemy dla Ciebie unikalne doświadczenie RP, odtwarzając realia słowiańskiej kultury, historii i tradycji, a także dopracowany świat, który odda ducha tamtych czasów. Twoja opinia i pomysły pomogą nam kształtować ten projekt. Na ten moment trwają intensywne prace, ale już niedługo otworzymy drzwi do tej wyjątkowej przygody. Śledź nasze postępy i przygotuj się na podróż w głąb słowiańskiej historii!</p>
+                <p>Witaj w świecie SlavicRP! Nasz słowiański serwer Minecraft Roleplay jest obecnie w fazie tworzenia. Pracujemy nad stworzeniem wyjątkowego doświadczenia, które przeniesie Cię w świat dawnych Słowian.</p>
                 
                 <div class="progress-container">
                     <div class="progress-title">
@@ -476,13 +496,14 @@
                     <h2 class="gallery-title">Postęp Prac</h2>
                     <p>Zajrzyj do galerii, aby zobaczyć nad czym obecnie pracujemy!</p>
                     <div class="gallery-grid">
-                        <div class="gallery-item" onclick="openModal('preview1.jpg', 'Nowy system ścinania drzew!', 'Rozwijaj swoje umiejętności drwala i odblokuj nowe możliwości! Postęp ścinania drzewa jest teraz widoczny w procentach obok paska narzędzi, co pozwala Ci śledzić swoje osiągnięcia w czasie rzeczywistym. Dodatkowo wprowadziliśmy immersyjne komendy /do oraz /me, które wzbogacą Twoje doświadczenie w grze.')">
+                        <!-- Zauważ, że teraz mamy inne obrazki w miniaturce (preview1.jpg) i w modalu (full1.jpg) -->
+                        <div class="gallery-item" data-full-image="full1.jpg" data-title="Wnętrze słowiańskiej chaty" data-description="Autentyczne wnętrze chaty słowiańskiej z elementami rustykalnego wyposażenia. Wykonana z drewna dębowego, zawiera podstawowe sprzęty domowe oraz miejsce na ognisko służące do przygotowywania posiłków.">
                             <img src="images/preview1.jpg" alt="Podgląd prac 1">
                         </div>
-                        <div class="gallery-item" onclick="openModal('preview2.jpg', 'Broń i wyposażenie', 'Zestaw broni i narzędzi dostępnych dla graczy. Na serwerze dostępne będą autentyczne przedmioty z epoki słowiańskiej, każdy z różnymi właściwościami i zastosowaniami podczas rozgrywki.')">
+                        <div class="gallery-item" data-full-image="full2.jpg" data-title="Broń i wyposażenie" data-description="Zestaw broni i narzędzi dostępnych dla graczy. Na serwerze dostępne będą autentyczne przedmioty z epoki słowiańskiej, każdy z różnymi właściwościami i zastosowaniami podczas rozgrywki.">
                             <img src="images/preview2.jpg" alt="Podgląd prac 2">
                         </div>
-                        <div class="gallery-item" onclick="openModal('preview3.jpg', 'Osada słowiańska', 'Główna osada graczy. Tutaj odbywać się będą najważniejsze wydarzenia, handel oraz interakcje między postaciami. Każdy budynek ma swoje unikalne przeznaczenie i funkcję w społeczności.')">
+                        <div class="gallery-item" data-full-image="full3.jpg" data-title="Osada słowiańska" data-description="Główna osada graczy. Tutaj odbywać się będą najważniejsze wydarzenia, handel oraz interakcje między postaciami. Każdy budynek ma swoje unikalne przeznaczenie i funkcję w społeczności.">
                             <img src="images/preview3.jpg" alt="Podgląd prac 3">
                         </div>
                     </div>
@@ -548,10 +569,20 @@
         const modalTitle = document.getElementById("modal-title");
         const modalDescription = document.getElementById("modal-description");
         
+        // Dodajemy listenery do wszystkich elementów galerii
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const fullImage = this.getAttribute('data-full-image');
+                const title = this.getAttribute('data-title');
+                const description = this.getAttribute('data-description');
+                openModal(fullImage, title, description);
+            });
+        });
+        
         // Funkcja otwierająca modal
         function openModal(imageSrc, title, description) {
             modal.style.display = "block";
-            modalImg.src = 'images/' + imageSrc;
+            modalImg.src = 'images/' + imageSrc; // Teraz używamy osobnego obrazu
             modalTitle.textContent = title;
             modalDescription.textContent = description;
             document.body.style.overflow = "hidden"; // Blokuje przewijanie strony pod modalem
