@@ -1,17 +1,24 @@
 .gallery-item:hover::before {
     opacity: 0.9;
 }.gallery-item::after {
-    content: '';
+    content: 'Kliknij, aby zobaczyć więcej';
     position: absolute;
-    bottom: 0;
+    top: 50%;
     left: 0;
     right: 0;
-    height: 0;
-    background-color: rgba(10, 10, 10, 0);
+    transform: translateY(-50%);
+    background-color: rgba(10, 10, 10, 0.7);
+    color: var(--light);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
 }
 
 .gallery-item:hover::after {
-    opacity: 0;
+    opacity: 1;
 }@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap');
 
 :root {
