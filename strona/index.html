@@ -3,38 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SlavicRP - Słowiański Serwer Minecraft Roleplay - Wkrótce</title>
+    <title>SlavicRP - Słowiański Serwer Minecraft Roleplay</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
         :root {
-            --primary: #8B0000;      /* Ciemna czerwień - kolor słowiański */
-            --primary-dark: #6B0000;
-            --secondary: #4F7942;    /* Ciemna zieleń - natura, lasy słowiańskie */
-            --dark: #1F2937;
-            --darker: #111827;
-            --light: #F9FAFB;
-            --gray: #6B7280;
-            --accent: #DAA520;       /* Złoty - nawiązanie do słowiańskiej biżuterii */
+            --primary: #9B2226;      /* Głęboka czerwień */
+            --primary-light: #BB3E3E; 
+            --primary-dark: #6A0F0F;
+            --secondary: #2B4141;    /* Ciemna zieleń/grafit */
+            --dark: #121212;         /* Głęboka czerń */
+            --darker: #0A0A0A;
+            --light: #E9E6E1;        /* Przygaszony biały */
+            --gray: #707070;
+            --accent: #D4A017;       /* Stare złoto */
+            --accent-dark: #A87B11;
+            --bg-overlay: rgba(18, 18, 18, 0.92);
+            --font-primary: 'Grenze Gotisch', serif;
+            --font-secondary: 'Open Sans', sans-serif;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-primary);
         }
         
         body {
             background-color: var(--dark);
             color: var(--light);
             line-height: 1.6;
-            background-image: url('images/background.jpg');
+            background-image: url('/api/placeholder/1920/1080');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(18, 18, 18, 0.8), rgba(10, 10, 10, 0.95));
+            z-index: -1;
         }
         
         .container {
@@ -42,88 +61,404 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
         }
         
+        /* Nagłówek */
         header {
-            background-color: rgba(17, 24, 39, 0.9);
-            padding: 20px 0;
+            background-color: rgba(10, 10, 10, 0.92);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--accent-dark);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--light);
             display: flex;
-            justify-content: center;
-            text-align: center;
+            align-items: center;
+            font-family: var(--font-primary);
+            letter-spacing: 1px;
         }
         
         .logo span {
             color: var(--accent);
+            margin-left: 5px;
         }
         
-        main {
-            flex: 1;
+        .logo img {
+            height: 45px;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 5px var(--accent-dark));
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            position: relative;
+            transition: color 0.3s;
+            padding: 5px 0;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 0;
-        }
-        
-        .coming-soon {
             text-align: center;
-            background-color: rgba(17, 24, 39, 0.85);
-            padding: 40px;
-            border-radius: 10px;
-            border: 2px solid var(--accent);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            padding: 60px 0;
+        }
+        
+        .hero-content {
+            position: relative;
             max-width: 800px;
+            padding: 50px 40px;
+            background-color: rgba(10, 10, 10, 0.75);
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.2s ease-out forwards;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            backdrop-filter: blur(5px);
             margin: 0 auto;
+            width: 100%;
         }
         
-        .coming-soon h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            border-radius: 4px;
+            pointer-events: none;
+            transform: scale(1.03);
+            opacity: 0.5;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--light);
+            font-family: var(--font-primary);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+        
+        .hero span {
+            display: block;
             color: var(--accent);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: slowPulse 3s infinite;
         }
         
-        .coming-soon p {
-            font-size: 1.1rem;
+        @keyframes slowPulse {
+            0% { text-shadow: 0 0 5px rgba(212, 160, 23, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(212, 160, 23, 0.8), 0 0 30px rgba(212, 160, 23, 0.4); }
+            100% { text-shadow: 0 0 5px rgba(212, 160, 23, 0.5); }
+        }
+        
+        .hero p {
+            font-size: 1.15rem;
             margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--light);
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 35px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.4);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-dark);
+            color: var(--light);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--darker);
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+        }
+        
+        .ip-display {
+            background-color: rgba(18, 18, 18, 0.8);
+            padding: 18px 25px;
+            border-radius: 2px;
+            margin: 35px auto 0;
+            max-width: 420px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(212, 160, 23, 0.4);
+            backdrop-filter: blur(5px);
+        }
+        
+        .ip-display p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+        
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .copy-btn:hover {
+            color: var(--accent);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--bg-overlay);
+            border-top: 1px solid rgba(212, 160, 23, 0.3);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/400/400');
+            background-size: 200px;
+            background-repeat: repeat;
+            opacity: 0.03;
+            z-index: -1;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--light);
+            text-align: center;
+            font-family: var(--font-primary);
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .section-title span {
+            color: var(--accent);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .about-card {
+            background-color: rgba(18, 18, 18, 0.7);
+            padding: 40px 30px;
+            border-radius: 4px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 160, 23, 0.2);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+        
+        .about-card:hover i {
+            transform: scale(1.15);
+        }
+        
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--light);
+            font-family: var(--font-primary);
+            letter-spacing: 1px;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            padding: 100px 0;
+            position: relative;
         }
         
         .progress-container {
-            margin: 40px 0;
+            background-color: rgba(18, 18, 18, 0.85);
+            padding: 50px 40px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
         
-        .progress-title {
+        .progress-bar-title {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--light);
         }
         
         .progress-bar {
             width: 100%;
-            height: 25px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
+            height: 12px;
+            background-color: rgba(212, 160, 23, 0.1);
+            border-radius: 6px;
             overflow: hidden;
             position: relative;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         .progress-bar-fill {
             height: 100%;
             background-color: var(--primary);
             width: 35%;
-            border-radius: 5px;
+            border-radius: 6px;
             position: relative;
-            transition: width 1s ease;
+            transition: width 1.5s ease;
+            background-image: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-light));
         }
         
         .progress-percentage {
@@ -133,165 +468,191 @@
             transform: translate(-50%, -50%);
             color: white;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            font-size: 0.8rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
         }
         
         .status-list {
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto 30px auto;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         
         .status-item {
+            background-color: rgba(18, 18, 18, 0.7);
+            padding: 18px 20px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            border-left: 3px solid var(--gray);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .status-icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
+        .status-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .status-complete {
-            color: #10B981;
+            border-left-color: #10B981;
         }
         
         .status-progress {
-            color: #FBBF24;
+            border-left-color: var(--accent);
         }
         
         .status-pending {
-            color: #6B7280;
+            border-left-color: var(--gray);
         }
         
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-discord {
-            background-color: #5865F2;
-        }
-        
-        .btn-discord:hover {
-            background-color: #4752C4;
-        }
-        
-        .ip-display {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 30px auto;
-            max-width: 500px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--accent);
-        }
-        
-        .ip-display p {
-            margin: 0;
-            font-family: monospace;
+        .status-icon {
+            margin-right: 15px;
             font-size: 1.2rem;
         }
         
-        .copy-btn {
-            background: none;
-            border: none;
-            color: var(--accent);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: color 0.3s;
+        .status-complete .status-icon {
+            color: #10B981;
         }
         
-        .copy-btn:hover {
-            color: white;
-        }
-
-        .gallery {
-            margin: 40px 0;
-        }
-
-        .gallery-title {
-            font-size: 1.5rem;
+        .status-progress .status-icon {
             color: var(--accent);
-            margin-bottom: 20px;
         }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+        
+        .status-pending .status-icon {
+            color: var(--gray);
         }
-
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            height: 150px;
-            border: 2px solid var(--accent);
-            transition: all 0.3s;
-            cursor: pointer;
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--bg-overlay);
+            border-top: 1px solid rgba(212, 160, 23, 0.3);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
             position: relative;
         }
-
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/400/400');
+            background-size: 200px;
+            background-repeat: repeat;
+            opacity: 0.03;
+            z-index: -1;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature {
+            background-color: rgba(18, 18, 18, 0.7);
+            padding: 40px 30px;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 160, 23, 0.4);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover i {
+            transform: scale(1.15);
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--light);
+            font-family: var(--font-primary);
+            letter-spacing: 1px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .gallery-container {
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            border-radius: 4px;
+            overflow: hidden;
+            height: 200px;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
         .gallery-item:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent);
         }
-
+        
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
         }
         
-        /* Informacja o kliknięciu */
-        .gallery-item::after {
-            content: 'Kliknij, aby powiększyć';
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px;
-            font-size: 0.8rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-            text-align: center;
+            background-color: rgba(10, 10, 10, 0.85);
+            color: var(--light);
+            padding: 12px;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.4s;
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(212, 160, 23, 0.3);
         }
         
-        .gallery-item:hover::after {
-            opacity: 1;
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
         }
         
-        /* Styl dla modalu (wyskakującego okna z obrazem) */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -301,63 +662,69 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         
         .modal-content {
             position: relative;
-            background-color: rgba(31, 41, 55, 0.95);
+            background-color: rgba(18, 18, 18, 0.95);
             margin: 5% auto;
-            padding: 25px;
-            border: 3px solid var(--accent);
-            border-radius: 10px;
+            padding: 40px;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            border-radius: 4px;
             width: 80%;
             max-width: 800px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             animation-name: modalopen;
-            animation-duration: 0.4s;
+            animation-duration: 0.5s;
+            backdrop-filter: blur(10px);
         }
         
         @keyframes modalopen {
-            from {opacity: 0; transform: scale(0.8);}
-            to {opacity: 1; transform: scale(1);}
+            from {opacity: 0; transform: scale(0.9) translateY(30px);}
+            to {opacity: 1; transform: scale(1) translateY(0);}
         }
         
         .modal-image-container {
-            margin-bottom: 20px;
-            border-radius: 5px;
+            margin-bottom: 25px;
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 160, 23, 0.2);
         }
         
         .modal-image {
             width: 100%;
-            max-height: 70vh;
+            max-height: 60vh;
             object-fit: contain;
             display: block;
         }
         
         .modal-description {
             color: var(--light);
-            margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
-            border-left: 4px solid var(--accent);
+            margin-top: 25px;
+            padding: 20px;
+            background-color: rgba(10, 10, 10, 0.5);
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+            line-height: 1.8;
         }
         
         .modal-title {
             color: var(--accent);
             font-size: 1.8rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-family: var(--font-primary);
+            letter-spacing: 1px;
         }
         
         .close {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 20px;
+            right: 25px;
             color: var(--light);
             font-size: 28px;
             font-weight: bold;
@@ -371,91 +738,375 @@
             cursor: pointer;
         }
         
-        footer {
-            background-color: rgba(17, 24, 39, 0.9);
-            padding: 20px 0;
+        /* Join Us Section */
+        .join-section {
+            padding: 100px 0;
             text-align: center;
-            border-top: 3px solid var(--accent);
-            margin-top: auto;
+            background-color: var(--bg-overlay);
+            border-top: 1px solid rgba(212, 160, 23, 0.3);
+            position: relative;
         }
         
-        footer p {
-            color: var(--gray);
-            font-size: 0.9rem;
+        .join-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/400/400');
+            background-size: 200px;
+            background-repeat: repeat;
+            opacity: 0.03;
+            z-index: -1;
+        }
+        
+        .join-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .join-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-discord {
+            background-color: #5865F2;
+        }
+        
+        .btn-discord:hover {
+            background-color: #4752C4;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin: 15px 0;
+            margin: 50px 0;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--dark);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(18, 18, 18, 0.7);
             border-radius: 50%;
             color: var(--light);
             font-size: 1.2rem;
             transition: all 0.3s;
-            border: 1px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 160, 23, 0.3);
         }
         
         .social-links a:hover {
             background-color: var(--primary);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .faq-question {
+            background-color: rgba(18, 18, 18, 0.8);
+            padding: 18px 25px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-left: 3px solid var(--accent);
+            backdrop-filter: blur(5px);
+            letter-spacing: 0.5px;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(18, 18, 18, 1);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--accent);
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            background-color: rgba(18, 18, 18, 0.6);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .faq-answer.show {
+            padding: 25px;
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 160, 23, 0.3);
+            margin-top: auto;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/400/400');
+            background-size: 200px;
+            background-repeat: repeat;
+            opacity: 0.03;
+            z-index: -1;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 30px;
+            font-family: var(--font-primary);
+            letter-spacing: 1px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+            margin-left: 5px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-nav a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-nav a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-social {
+            margin: 30px 0;
+        }
+        
+        .footer-copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(107, 114, 128, 0.1);
+        }
+        
+        .footer-copyright span {
+            color: var(--accent);
         }
         
         /* Responsive styles */
         @media (max-width: 768px) {
-            .coming-soon {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-menu {
+                margin-top: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content {
                 padding: 30px 20px;
             }
             
-            .coming-soon h1 {
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .join-buttons {
+                flex-direction: column;
+            }
+            
+            .section-title {
                 font-size: 2rem;
             }
+        }
+        
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             
-            .buttons {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu.active {
+                display: flex;
                 flex-direction: column;
-                gap: 10px;
-            }
-            
-            .btn {
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-            }
-            
-            .modal-content {
-                width: 95%;
-                padding: 15px;
-            }
-            
-            .modal-title {
-                font-size: 1.4rem;
+                background-color: rgba(10, 10, 10, 0.95);
+                padding: 20px;
+                z-index: 100;
+                border-bottom: 1px solid var(--accent-dark);
+                backdrop-filter: blur(10px);
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">Slavic<span>RP</span></div>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/api/placeholder/50/50" alt="SlavicRP Logo">
+                Slavic<span>RP</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">O serwerze</a>
+                <a href="#progress" class="nav-link">Postęp prac</a>
+                <a href="#features" class="nav-link">Funkcje</a>
+                <a href="#gallery" class="nav-link">Galeria</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#join" class="nav-link">Dołącz do nas</a>
+            </nav>
         </div>
     </header>
 
-    <main>
+    <section class="hero">
         <div class="container">
-            <div class="coming-soon">
-                <h1>Serwer w Budowie</h1>
-                <p>Witaj w świecie SlavicRP! Zapraszamy Cię do wyjątkowego projektu – słowiańskiego serwera Minecraft Roleplay, który obecnie znajduje się w fazie tworzenia. Nasz zespół z pasją pracuje nad tym, aby przenieść Cię w fascynujący świat dawnych Słowian, pełen autentycznych detali i niepowtarzalnej atmosfery. Szykujemy dla Ciebie unikalne doświadczenie RP, odtwarzając realia słowiańskiej kultury, historii i tradycji, a także dopracowany świat, który odda ducha tamtych czasów. Twoja opinia i pomysły pomogą nam kształtować ten projekt. Na ten moment trwają intensywne prace, ale już niedługo otworzymy drzwi do tej wyjątkowej przygody. Śledź nasze postępy i przygotuj się na podróż w głąb słowiańskiej historii!</p>
+            <div class="hero-content">
+                <h1>Słowiański świat <span>Minecraft Roleplay</span></h1>
+                <p>Witaj w świecie SlavicRP! Przenieś się w czasie do świata dawnych Słowian, doświadcz ich kultury, rzemiosła i wierzeń. Eksploruj rozległe słowiańskie krainy, buduj swoje osady i twórz własną legendę w naszym immersyjnym serwerze roleplay.</p>
                 
-                <div class="progress-container">
-                    <div class="progress-title">
-                        <span>Postęp prac</span>
+                <div class="ip-display">
+                    <p id="server-ip">srv731529.hstgr.cloud:25565</p>
+                    <button class="copy-btn" onclick="copyIP()"><i class="fas fa-copy"></i></button>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#join" class="btn btn-primary">Dołącz teraz</a>
+                    <a href="#progress" class="btn btn-secondary">Sprawdź postęp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">O Serwerze <span>SlavicRP</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">SlavicRP to wyjątkowy projekt serwera Minecraft, który przenosi graczy w fascynujący świat dawnych Słowian. Odtwarzamy realia słowiańskiej kultury, historii i tradycji, tworząc immersyjne środowisko do odgrywania ról.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-scroll"></i>
+                    <h3>Bogata Historia</h3>
+                    <p>Odkrywaj fascynującą historię i mitologię słowiańską, bierz udział w rytuałach i festiwalach sezonowych, poznawaj zapomnianych bogów i duchy natury.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Społeczność</h3>
+                    <p>Dołącz do rosnącej społeczności pasjonatów słowiańskiej kultury i historii. Buduj wspólnie osady, handluj z innymi graczami i twórz sojusze plemienne.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-hammer"></i>
+                    <h3>Rzemiosło</h3>
+                    <p>Rozwijaj umiejętności w tradycyjnych słowiańskich rzemiosłach - od kowalstwa, przez tkactwo, po warzenie miodów pitnych. Każde rzemiosło ma swój unikatowy system rozwoju.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="progress-section" id="progress">
+        <div class="container">
+            <h2 class="section-title">Postęp <span>Prac</span></h2>
+            <div class="progress-container">
+                <p style="text-align: center; margin-bottom: 30px;">Nasz zespół z pasją pracuje nad tym, aby stworzyć autentyczny i immersyjny świat SlavicRP. Poniżej możesz zobaczyć aktualny postęp prac nad serwerem.</p>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar-title">
+                        <span>Całkowity postęp</span>
                         <span>35%</span>
                     </div>
                     <div class="progress-bar">
@@ -466,63 +1117,183 @@
                 </div>
                 
                 <div class="status-list">
-                    <div class="status-item">
-                        <span class="status-icon status-complete"><i class="fas fa-check-circle"></i></span>
+                    <div class="status-item status-complete">
+                        <span class="status-icon"><i class="fas fa-check-circle"></i></span>
                         <span>Zakup i konfiguracja serwera</span>
                     </div>
-                    <div class="status-item">
-                        <span class="status-icon status-complete"><i class="fas fa-check-circle"></i></span>
+                    <div class="status-item status-complete">
+                        <span class="status-icon"><i class="fas fa-check-circle"></i></span>
                         <span>Instalacja podstawowych pluginów</span>
                     </div>
-                    <div class="status-item">
-                        <span class="status-icon status-progress"><i class="fas fa-spinner fa-spin"></i></span>
+                    <div class="status-item status-progress">
+                        <span class="status-icon"><i class="fas fa-spinner fa-spin"></i></span>
                         <span>Tworzenie świata słowiańskiego</span>
                     </div>
-                    <div class="status-item">
-                        <span class="status-icon status-progress"><i class="fas fa-spinner fa-spin"></i></span>
+                    <div class="status-item status-progress">
+                        <span class="status-icon"><i class="fas fa-spinner fa-spin"></i></span>
                         <span>Konfiguracja niestandardowych pluginów</span>
                     </div>
-                    <div class="status-item">
-                        <span class="status-icon status-pending"><i class="fas fa-clock"></i></span>
+                    <div class="status-item status-pending">
+                        <span class="status-icon"><i class="fas fa-clock"></i></span>
                         <span>Tworzenie mechanik roleplay</span>
                     </div>
-                    <div class="status-item">
-                        <span class="status-icon status-pending"><i class="fas fa-clock"></i></span>
+                    <div class="status-item status-pending">
+                        <span class="status-icon"><i class="fas fa-clock"></i></span>
                         <span>Testy i optymalizacja</span>
                     </div>
                 </div>
-                
-                <div class="gallery">
-                    <h2 class="gallery-title">Postęp Prac</h2>
-                    <p>Zajrzyj do galerii, aby zobaczyć nad czym obecnie pracujemy!</p>
-                    <div class="gallery-grid">
-                        <!-- Zauważ, że teraz mamy inne obrazki w miniaturce (preview1.jpg) i w modalu (full1.jpg) -->
-                        <div class="gallery-item" data-full-image="full1.jpg" data-title="Nowy system ścinania drzew już dostępny!" data-description="Rozwijaj swoje umiejętności drwala i odblokuj nowe możliwości! Postęp ścinania drzewa jest teraz widoczny w procentach obok paska narzędzi, co pozwala Ci śledzić swoje osiągnięcia w czasie rzeczywistym. Dodatkowo wprowadziliśmy immersyjne komendy /do oraz /me, które wzbogacą Twoje doświadczenie w grze. Dołącz i sprawdź nowości już dziś!">
-                            <img src="images/preview1.jpg" alt="Podgląd prac 1">
-                        </div>
-                        <div class="gallery-item" data-full-image="full2.jpg" data-title="Nowy system picia wody i ogrzania się już dostępny!" data-description="Doskonal swoje umiejętności przetrwania i staw czoła nowym wyzwaniom! Od teraz kontroluj swoje podstawowe potrzeby na bieżąco – poziomy Głodu, Nawodnienia i Ciepła widoczne są w procentach na pasku statusu obok narzędzi. Utrzymuj nawodnienie, korzystając z wody, i dbaj o ciepło, tworząć ognisko.">
-                            <img src="images/preview2.jpg" alt="Podgląd prac 2">
-                        </div>
-                        <div class="gallery-item" data-full-image="full3.jpg" data-title="Nowy system immersyjności z komendami /me, /do i /k już aktywny!" data-description="Wzbogać swoją przygodę w SlavicRP dzięki nowym narzędziom do odgrywania roli! Wprowadzamy system immersyjności z komendami /me, /do oraz /k, które pozwolą Ci jeszcze głębiej wczuć się w klimat słowiańskiego świata. Używaj /me, by opisać swoje emocje i działania, /do, by oddać wydarzenia wokół Ciebie, a /k, by krzyknąć i zwrócić uwagę innych w fabularny sposób. Te funkcje sprawią, że każda interakcja stanie się bardziej realistyczna i pełna emocji. Dołącz i odkryj nowe możliwości już teraz!">
-                            <img src="images/preview3.jpg" alt="Podgląd prac 3">
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Funkcje <span>Serwera</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">SlavicRP oferuje wiele unikalnych funkcji, które wzbogacają rozgrywkę i zapewniają autentyczne doświadczenie słowiańskiego świata.</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-tree"></i>
+                    <h3>Autentyczny Świat</h3>
+                    <p>Rozległa mapa odtwarzająca krajobrazy słowiańskie - od gęstych puszcz, przez bagienne mokradła, po rozległe pola i osady. Każdy region ma swoje unikalne surowce i wyzwania.</p>
                 </div>
-                
-                <p>Dołącz do naszej społeczności na Discordzie, aby być na bieżąco z postępem prac, uczestniczyć w podejmowaniu decyzji dotyczących serwera i poznać innych graczy!</p>
-                
-                <div class="ip-display">
-                    <p id="server-ip">srv731529.hstgr.cloud:25565</p>
-                    <button class="copy-btn" onclick="copyIP()"><i class="fas fa-copy"></i></button>
+                <div class="feature">
+                    <i class="fas fa-fire"></i>
+                    <h3>System Przetrwania</h3>
+                    <p>Zaawansowany system przetrwania uwzględniający temperaturę, nawodnienie i głód. Pory roku mają rzeczywisty wpływ na rozgrywkę - przygotuj się na srogą zimę!</p>
                 </div>
-                
-                <div class="buttons">
-                    <a href="https://discord.gg/TWOJ-LINK-DISCORD" target="_blank" class="btn btn-discord"><i class="fab fa-discord"></i> Dołącz do Discorda</a>
-                    <a href="#" class="btn"><i class="fas fa-book"></i> Dowiedz się więcej</a>
+                <div class="feature">
+                    <i class="fas fa-comments"></i>
+                    <h3>Immersyjny Roleplay</h3>
+                    <p>Rozbudowany system komend roleplay (/me, /do, /k) pozwalający na tworzenie głębokich interakcji i odgrywanie swojej postaci w świecie słowiańskim.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-archway"></i>
+                    <h3>Własne Osady</h3>
+                    <p>Możliwość zakładania i rozwijania własnych osad, budowania domów w stylu słowiańskim i zarządzania plemiennymi społecznościami.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-hat-wizard"></i>
+                    <h3>Bogata Mitologia</h3>
+                    <p>Możliwość praktykowania słowiańskich wierzeń, składania ofiar bogom i zdobywania ich przychylności. Cykliczne święta i rytuały kształtujące życie społeczności.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-beer"></i>
+                    <h3>Alchemia i Medycyna</h3>
+                    <p>System warzenia mikstur, naparów i miodów pitnych według starych słowiańskich receptur. Możliwość leczenia chorób i ran za pomocą ziół i naturalnych składników.</p>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeria <span>Projektu</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Zajrzyj do naszej galerii, aby zobaczyć postęp prac nad serwerem SlavicRP. Publikujemy regularnie nowe zdjęcia, aby być na bieżąco z rozwojem projektu.</p>
+            
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-full="full1.jpg" data-title="Nowy system ścinania drzew już dostępny!" data-description="Rozwijaj swoje umiejętności drwala i odblokuj nowe możliwości! Postęp ścinania drzewa jest teraz widoczny w procentach obok paska narzędzi, co pozwala Ci śledzić swoje osiągnięcia w czasie rzeczywistym. Dodatkowo wprowadziliśmy immersyjne komendy /do oraz /me, które wzbogacą Twoje doświadczenie w grze. Dołącz i sprawdź nowości już dziś!">
+                        <img src="/api/placeholder/400/300" alt="Ścinanie drzew">
+                        <div class="gallery-caption">System ścinania drzew</div>
+                    </div>
+                    <div class="gallery-item" data-full="full2.jpg" data-title="Nowy system picia wody i ogrzania się już dostępny!" data-description="Doskonal swoje umiejętności przetrwania i staw czoła nowym wyzwaniom! Od teraz kontroluj swoje podstawowe potrzeby na bieżąco – poziomy Głodu, Nawodnienia i Ciepła widoczne są w procentach na pasku statusu obok narzędzi. Utrzymuj nawodnienie, korzystając z wody, i dbaj o ciepło, tworząć ognisko.">
+                        <img src="/api/placeholder/400/300" alt="System przetrwania">
+                        <div class="gallery-caption">System przetrwania</div>
+                    </div>
+                    <div class="gallery-item" data-full="full3.jpg" data-title="Nowy system immersyjności z komendami /me, /do i /k już aktywny!" data-description="Wzbogać swoją przygodę w SlavicRP dzięki nowym narzędziom do odgrywania roli! Wprowadzamy system immersyjności z komendami /me, /do oraz /k, które pozwolą Ci jeszcze głębiej wczuć się w klimat słowiańskiego świata. Używaj /me, by opisać swoje emocje i działania, /do, by oddać wydarzenia wokół Ciebie, a /k, by krzyknąć i zwrócić uwagę innych w fabularny sposób. Te funkcje sprawią, że każda interakcja stanie się bardziej realistyczna i pełna emocji.">
+                        <img src="/api/placeholder/400/300" alt="Komendy roleplay">
+                        <div class="gallery-caption">Komendy roleplay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Często Zadawane <span>Pytania</span></h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Kiedy serwer zostanie uruchomiony?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Przewidujemy, że serwer zostanie uruchomiony w wersji beta na przełomie kwietnia i maja 2025 roku. Będziemy informować o dokładnej dacie na naszym Discordzie, dlatego zachęcamy do dołączenia, aby być na bieżąco!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Czy mogę dołączyć do zespołu tworzącego serwer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tak! Poszukujemy pasjonatów słowiańskiej kultury i historii, a także osób z doświadczeniem w budowaniu, programowaniu pluginów, zarządzaniu społecznością i tworzeniu treści. Jeśli chcesz dołączyć do naszego zespołu, skontaktuj się z nami na Discordzie!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Jaka wersja Minecraft jest wymagana?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Serwer będzie działał na wersji Minecraft Java Edition 1.20.4. Rekomendujemy korzystanie z czystego klienta, ale niektóre mody kosmetyczne jak OptiFine będą dozwolone. Pełna lista dozwolonych modów zostanie opublikowana przed uruchomieniem serwera.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Czy potrzebuję doświadczenia w roleplayu?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nie jest wymagane wcześniejsze doświadczenie w roleplayu. Przygotowaliśmy szczegółowy poradnik dla początkujących, a nasza społeczność jest przyjazna i chętnie pomoże nowym graczom. Jedyne, czego potrzebujesz, to chęć do zabawy i szacunek dla innych graczy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Czy serwer będzie miał własny resource pack?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tak, pracujemy nad dedykowanym resource packiem, który wzbogaci słowiański klimat o autentyczne tekstury, modele i dźwięki. Resource pack będzie automatycznie pobierany przy łączeniu z serwerem, ale jego używanie będzie opcjonalne (choć mocno zalecane dla pełnego doświadczenia).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="join-section" id="join">
+        <div class="container">
+            <div class="join-container">
+                <h2 class="section-title">Dołącz do <span>Nas</span></h2>
+                <p>Dołącz do naszej społeczności na Discordzie, aby być na bieżąco z postępem prac, uczestniczyć w podejmowaniu decyzji dotyczących serwera i poznać innych graczy!</p>
+                
+                <div class="ip-display" style="margin-top: 30px;">
+                    <p id="server-ip-footer">srv731529.hstgr.cloud:25565</p>
+                    <button class="copy-btn" onclick="copyIPFooter()"><i class="fas fa-copy"></i></button>
+                </div>
+                
+                <div class="join-buttons">
+                    <a href="https://discord.gg/TWOJ-LINK-DISCORD" target="_blank" class="btn btn-discord"><i class="fab fa-discord"></i> Dołącz do Discorda</a>
+                    <a href="#" class="btn btn-accent"><i class="fas fa-book"></i> Przewodnik dla początkujących</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Modal (wyskakujące okno) do wyświetlania powiększonych obrazów -->
     <div id="imageModal" class="modal">
@@ -540,13 +1311,30 @@
 
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            <div class="footer-logo">Slavic<span>RP</span></div>
+            
+            <nav class="footer-nav">
+                <a href="#about">O serwerze</a>
+                <a href="#progress">Postęp prac</a>
+                <a href="#features">Funkcje</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#faq">FAQ</a>
+                <a href="#join">Dołącz do nas</a>
+            </nav>
+            
+            <div class="footer-social">
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
-            <p>&copy; 2025 SlavicRP - Wszelkie prawa zastrzeżone | Niech bogowie mają Cię w swojej opiece!</p>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2025 SlavicRP - Wszelkie prawa zastrzeżone | Niech bogowie mają Cię w swojej opiece!</p>
+            </div>
         </div>
     </footer>
 
@@ -563,6 +1351,39 @@
                 });
         }
         
+        function copyIPFooter() {
+            const ip = document.getElementById('server-ip-footer').textContent;
+            navigator.clipboard.writeText(ip)
+                .then(() => {
+                    alert('Adres IP skopiowany do schowka!');
+                })
+                .catch(err => {
+                    console.error('Nie udało się skopiować IP: ', err);
+                });
+        }
+        
+        // Obsługa menu mobilnego
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Płynne przewijanie do sekcji po kliknięciu linku
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Zamknij menu mobilne po kliknięciu linku
+                navMenu.classList.remove('active');
+            });
+        });
+        
         // Funkcje obsługi modalu z obrazami
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modal-image");
@@ -572,7 +1393,7 @@
         // Dodajemy listenery do wszystkich elementów galerii
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', function() {
-                const fullImage = this.getAttribute('data-full-image');
+                const fullImage = this.getAttribute('data-full');
                 const title = this.getAttribute('data-title');
                 const description = this.getAttribute('data-description');
                 openModal(fullImage, title, description);
@@ -582,7 +1403,7 @@
         // Funkcja otwierająca modal
         function openModal(imageSrc, title, description) {
             modal.style.display = "block";
-            modalImg.src = 'images/' + imageSrc; // Teraz używamy osobnego obrazu
+            modalImg.src = '/api/placeholder/800/600';
             modalTitle.textContent = title;
             modalDescription.textContent = description;
             document.body.style.overflow = "hidden"; // Blokuje przewijanie strony pod modalem
@@ -606,6 +1427,25 @@
             if (event.key === "Escape" && modal.style.display === "block") {
                 closeModal();
             }
+        });
+        
+        // Obsługa FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                // Zamykamy wszystkie inne pytania
+                faqQuestions.forEach(item => {
+                    if (item !== question) {
+                        item.classList.remove('active');
+                        item.nextElementSibling.classList.remove('show');
+                    }
+                });
+                
+                // Przełączamy aktualnie kliknięte pytanie
+                question.classList.toggle('active');
+                question.nextElementSibling.classList.toggle('show');
+            });
         });
     </script>
 </body>
