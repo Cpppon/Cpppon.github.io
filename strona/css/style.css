@@ -1,4 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+.gallery-item:hover::before {
+    opacity: 0.9;
+}.gallery-item::after {
+    content: 'Kliknij, aby zobaczyć więcej';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: rgba(10, 10, 10, 0.7);
+    color: var(--light);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap');
 
 :root {
     --primary: #9B2226;      /* Głęboka czerwień */
@@ -27,7 +48,9 @@ body {
     background-color: var(--dark);
     color: var(--light);
     line-height: 1.6;
-    background-image: url('images/background.jpg');
+    /* Tymczasowo zakomentowane - odkomentuj gdy obrazy będą dostępne */
+    /* background-image: url('./images/background.jpg'); */
+    background: linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #0a0a0a 100%);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -332,7 +355,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/texture.jpg');
+    background-image: url('./images/texture.jpg');
     background-size: 200px;
     background-repeat: repeat;
     opacity: 0.03;
@@ -616,6 +639,24 @@ header {
     cursor: pointer;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--accent);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M15 3a1 1 0 011 1v2h2a1 1 0 011 1v10a1 1 0 01-1 1H8a1 1 0 01-1-1v-2H5a1 1 0 01-1-1V4a1 1 0 011-1h10zm-2 5H7v7h6v-7zm2-3H6v8h1V9a1 1 0 011-1h7V5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .gallery-item:hover {
