@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlavicRP - Słowiański Serwer Minecraft Roleplay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="./images/logo.png" alt="SlavicRP Logo">
+                Slavic<span>RP</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">O serwerze</a>
+                <a href="#progress" class="nav-link">Postęp prac</a>
+                <a href="#features" class="nav-link">Funkcje</a>
+                <a href="#gallery" class="nav-link">Galeria</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#join" class="nav-link">Dołącz do nas</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Słowiański świat <span>Minecraft Roleplay</span></h1>
+                <p>Witaj w świecie SlavicRP! Przenieś się w czasie do świata dawnych Słowian, doświadcz ich kultury, rzemiosła i wierzeń. Eksploruj rozległe słowiańskie krainy, buduj swoje osady i twórz własną legendę w naszym immersyjnym serwerze roleplay.</p>
+                
+                <div class="ip-display">
+                    <p id="server-ip">srv731529.hstgr.cloud:25565</p>
+                    <button class="copy-btn" onclick="copyIP()"><i class="fas fa-copy"></i></button>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#join" class="btn btn-primary">Dołącz teraz</a>
+                    <a href="#progress" class="btn btn-secondary">Sprawdź postęp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">O Serwerze <span>SlavicRP</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">SlavicRP to wyjątkowy projekt serwera Minecraft, który przenosi graczy w fascynujący świat dawnych Słowian. Odtwarzamy realia słowiańskiej kultury, historii i tradycji, tworząc immersyjne środowisko do odgrywania ról.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-scroll"></i>
+                    <h3>Bogata Historia</h3>
+                    <p>Odkrywaj fascynującą historię i mitologię słowiańską, bierz udział w rytuałach i festiwalach sezonowych, poznawaj zapomnianych bogów i duchy natury.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Społeczność</h3>
+                    <p>Dołącz do rosnącej społeczności pasjonatów słowiańskiej kultury i historii. Buduj wspólnie osady, handluj z innymi graczami i twórz sojusze plemienne.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-hammer"></i>
+                    <h3>Rzemiosło</h3>
+                    <p>Rozwijaj umiejętności w tradycyjnych słowiańskich rzemiosłach - od kowalstwa, przez tkactwo, po warzenie miodów pitnych. Każde rzemiosło ma swój unikatowy system rozwoju.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="progress-section" id="progress">
+        <div class="container">
+            <h2 class="section-title">Postęp <span>Prac</span></h2>
+            <div class="progress-container">
+                <p style="text-align: center; margin-bottom: 30px;">Nasz zespół z pasją pracuje nad tym, aby stworzyć autentyczny i immersyjny świat SlavicRP. Poniżej możesz zobaczyć aktualny postęp prac nad serwerem.</p>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar-title">
+                        <span>Całkowity postęp</span>
+                        <span>35%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 35%;">
+                            <span class="progress-percentage">35%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="status-list">
+                    <div class="status-item status-complete">
+                        <span class="status-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Zakup i konfiguracja serwera</span>
+                    </div>
+                    <div class="status-item status-complete">
+                        <span class="status-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Instalacja podstawowych pluginów</span>
+                    </div>
+                    <div class="status-item status-progress">
+                        <span class="status-icon"><i class="fas fa-spinner fa-spin"></i></span>
+                        <span>Tworzenie świata słowiańskiego</span>
+                    </div>
+                    <div class="status-item status-progress">
+                        <span class="status-icon"><i class="fas fa-spinner fa-spin"></i></span>
+                        <span>Konfiguracja niestandardowych pluginów</span>
+                    </div>
+                    <div class="status-item status-pending">
+                        <span class="status-icon"><i class="fas fa-clock"></i></span>
+                        <span>Tworzenie mechanik roleplay</span>
+                    </div>
+                    <div class="status-item status-pending">
+                        <span class="status-icon"><i class="fas fa-clock"></i></span>
+                        <span>Testy i optymalizacja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Funkcje <span>Serwera</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">SlavicRP oferuje wiele unikalnych funkcji, które wzbogacają rozgrywkę i zapewniają autentyczne doświadczenie słowiańskiego świata.</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-tree"></i>
+                    <h3>Autentyczny Świat</h3>
+                    <p>Rozległa mapa odtwarzająca krajobrazy słowiańskie - od gęstych puszcz, przez bagienne mokradła, po rozległe pola i osady. Każdy region ma swoje unikalne surowce i wyzwania.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-fire"></i>
+                    <h3>System Przetrwania</h3>
+                    <p>Zaawansowany system przetrwania uwzględniający temperaturę, nawodnienie i głód. Pory roku mają rzeczywisty wpływ na rozgrywkę - przygotuj się na srogą zimę!</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-comments"></i>
+                    <h3>Immersyjny Roleplay</h3>
+                    <p>Rozbudowany system komend roleplay (/me, /do, /k) pozwalający na tworzenie głębokich interakcji i odgrywanie swojej postaci w świecie słowiańskim.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-archway"></i>
+                    <h3>Własne Osady</h3>
+                    <p>Możliwość zakładania i rozwijania własnych osad, budowania domów w stylu słowiańskim i zarządzania plemiennymi społecznościami.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-hat-wizard"></i>
+                    <h3>Bogata Mitologia</h3>
+                    <p>Możliwość praktykowania słowiańskich wierzeń, składania ofiar bogom i zdobywania ich przychylności. Cykliczne święta i rytuały kształtujące życie społeczności.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-beer"></i>
+                    <h3>Alchemia i Medycyna</h3>
+                    <p>System warzenia mikstur, naparów i miodów pitnych według starych słowiańskich receptur. Możliwość leczenia chorób i ran za pomocą ziół i naturalnych składników.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeria <span>Projektu</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Zajrzyj do naszej galerii, aby zobaczyć postęp prac nad serwerem SlavicRP. Publikujemy regularnie nowe zdjęcia, aby być na bieżąco z rozwojem projektu.</p>
+            <p style="text-align: center; margin-top: 15px; color: var(--accent); font-style: italic;">
+                <i class="fas fa-info-circle"></i> Kliknij na dowolny obrazek, aby zobaczyć więcej szczegółów i informacji!
+            </p>
+            
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-full="./images/full1.jpg" data-title="Nowy system ścinania drzew już dostępny!" data-description="Rozwijaj swoje umiejętności drwala i odblokuj nowe możliwości! Postęp ścinania drzewa jest teraz widoczny w procentach obok paska narzędzi, co pozwala Ci śledzić swoje osiągnięcia w czasie rzeczywistym. Dodatkowo wprowadziliśmy immersyjne komendy /do oraz /me, które wzbogacą Twoje doświadczenie w grze. Dołącz i sprawdź nowości już dziś!">
+                        <img src="./images/thumbnail1.jpg" alt="Ścinanie drzew">
+                        <div class="gallery-caption">System ścinania drzew</div>
+                    </div>
+                    <div class="gallery-item" data-full="./images/full2.jpg" data-title="Nowy system picia wody i ogrzania się już dostępny!" data-description="Doskonal swoje umiejętności przetrwania i staw czoła nowym wyzwaniom! Od teraz kontroluj swoje podstawowe potrzeby na bieżąco – poziomy Głodu, Nawodnienia i Ciepła widoczne są w procentach na pasku statusu obok narzędzi. Utrzymuj nawodnienie, korzystając z wody, i dbaj o ciepło, tworząć ognisko.">
+                        <img src="./images/thumbnail2.jpg" alt="System przetrwania">
+                        <div class="gallery-caption">System przetrwania</div>
+                    </div>
+                    <div class="gallery-item" data-full="./images/full3.jpg" data-title="Nowy system immersyjności z komendami /me, /do i /k już aktywny!" data-description="Wzbogać swoją przygodę w SlavicRP dzięki nowym narzędziom do odgrywania roli! Wprowadzamy system immersyjności z komendami /me, /do oraz /k, które pozwolą Ci jeszcze głębiej wczuć się w klimat słowiańskiego świata. Używaj /me, by opisać swoje emocje i działania, /do, by oddać wydarzenia wokół Ciebie, a /k, by krzyknąć i zwrócić uwagę innych w fabularny sposób. Te funkcje sprawią, że każda interakcja stanie się bardziej realistyczna i pełna emocji.">
+                        <img src="./images/thumbnail3.jpg" alt="Komendy roleplay">
+                        <div class="gallery-caption">Komendy roleplay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Często Zadawane <span>Pytania</span></h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Kiedy serwer zostanie uruchomiony?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Przewidujemy, że serwer zostanie uruchomiony w wersji beta na przełomie kwietnia i maja 2025 roku. Będziemy informować o dokładnej dacie na naszym Discordzie, dlatego zachęcamy do dołączenia, aby być na bieżąco!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Czy mogę dołączyć do zespołu tworzącego serwer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tak! Poszukujemy pasjonatów słowiańskiej kultury i historii, a także osób z doświadczeniem w budowaniu, programowaniu pluginów, zarządzaniu społecznością i tworzeniu treści. Jeśli chcesz dołączyć do naszego zespołu, skontaktuj się z nami na Discordzie!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Jaka wersja Minecraft jest wymagana?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Serwer będzie działał na wersji Minecraft Java Edition 1.20.4. Rekomendujemy korzystanie z czystego klienta, ale niektóre mody kosmetyczne jak OptiFine będą dozwolone. Pełna lista dozwolonych modów zostanie opublikowana przed uruchomieniem serwera.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Czy potrzebuję doświadczenia w roleplayu?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nie jest wymagane wcześniejsze doświadczenie w roleplayu. Przygotowaliśmy szczegółowy poradnik dla początkujących, a nasza społeczność jest przyjazna i chętnie pomoże nowym graczom. Jedyne, czego potrzebujesz, to chęć do zabawy i szacunek dla innych graczy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Czy serwer będzie miał własny resource pack?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tak, pracujemy nad dedykowanym resource packiem, który wzbogaci słowiański klimat o autentyczne tekstury, modele i dźwięki. Resource pack będzie automatycznie pobierany przy łączeniu z serwerem, ale jego używanie będzie opcjonalne (choć mocno zalecane dla pełnego doświadczenia).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="join-section" id="join">
+        <div class="container">
+            <div class="join-container">
+                <h2 class="section-title">Dołącz do <span>Nas</span></h2>
+                <p>Dołącz do naszej społeczności na Discordzie, aby być na bieżąco z postępem prac, uczestniczyć w podejmowaniu decyzji dotyczących serwera i poznać innych graczy!</p>
+                
+                <div class="ip-display" style="margin-top: 30px;">
+                    <p id="server-ip-footer">srv731529.hstgr.cloud:25565</p>
+                    <button class="copy-btn" onclick="copyIPFooter()"><i class="fas fa-copy"></i></button>
+                </div>
+                
+                <div class="join-buttons">
+                    <a href="https://discord.gg/TWOJ-LINK-DISCORD" target="_blank" class="btn btn-discord"><i class="fab fa-discord"></i> Dołącz do Discorda</a>
+                    <a href="#" class="btn btn-accent"><i class="fas fa-book"></i> Przewodnik dla początkujących</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal (wyskakujące okno) do wyświetlania powiększonych obrazów -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title" class="modal-title">Tytuł obrazu</h3>
+            <div class="modal-image-container">
+                <img id="modal-image" class="modal-image" src="" alt="Powiększony obraz">
+            </div>
+            <div id="modal-description" class="modal-description">
+                Opis obrazu pojawi się tutaj...
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Slavic<span>RP</span></div>
+            
+            <nav class="footer-nav">
+                <a href="#about">O serwerze</a>
+                <a href="#progress">Postęp prac</a>
+                <a href="#features">Funkcje</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#faq">FAQ</a>
+                <a href="#join">Dołącz do nas</a>
+            </nav>
+            
+            <div class="footer-social">
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2025 SlavicRP - Wszelkie prawa zastrzeżone | Niech bogowie mają Cię w swojej opiece!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funkcja kopiowania IP serwera
+        function copyIP() {
+            const ip = document.getElementById('server-ip').textContent;
+            navigator.clipboard.writeText(ip)
+                .then(() => {
+                    alert('Adres IP skopiowany do schowka!');
+                })
+                .catch(err => {
+                    console.error('Nie udało się skopiować IP: ', err);
+                });
+        }
+        
+        function copyIPFooter() {
+            const ip = document.getElementById('server-ip-footer').textContent;
+            navigator.clipboard.writeText(ip)
+                .then(() => {
+                    alert('Adres IP skopiowany do schowka!');
+                })
+                .catch(err => {
+                    console.error('Nie udało się skopiować IP: ', err);
+                });
+        }
+        
+        // Obsługa menu mobilnego
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Płynne przewijanie do sekcji po kliknięciu linku
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Zamknij menu mobilne po kliknięciu linku
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Funkcje obsługi modalu z obrazami
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modal-image");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDescription = document.getElementById("modal-description");
+        
+        // Dodajemy listenery do wszystkich elementów galerii
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const fullImage = this.getAttribute('data-full');
+                const title = this.getAttribute('data-title');
+                const description = this.getAttribute('data-description');
+                openModal(fullImage, title, description);
+            });
+        });
+        
+        // Funkcja otwierająca modal
+        function openModal(imageSrc, title, description) {
+            modal.style.display = "block";
+            modalImg.src = imageSrc || "https://via.placeholder.com/800x600?text=Pełny+widok";
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            document.body.style.overflow = "hidden"; // Blokuje przewijanie strony pod modalem
+        }
+        
+        // Funkcja zamykająca modal
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Przywraca przewijanie strony
+        }
+        
+        // Zamykanie modala po kliknięciu poza jego zawartością
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // Obsługa zamykania modalu klawiszem ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && modal.style.display === "block") {
+                closeModal();
+            }
+        });
+        
+        // Obsługa FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                // Zamykamy wszystkie inne pytania
+                faqQuestions.forEach(item => {
+                    if (item !== question) {
+                        item.classList.remove('active');
+                        item.nextElementSibling.classList.remove('show');
+                    }
+                });
+                
+                // Przełączamy aktualnie kliknięte pytanie
+                question.classList.toggle('active');
+                question.nextElementSibling.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>
