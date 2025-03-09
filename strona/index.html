@@ -23,8 +23,8 @@
                 <a href="#progress" class="nav-link">Postęp prac</a>
                 <a href="#features" class="nav-link">Funkcje</a>
                 <a href="#gallery" class="nav-link">Galeria</a>
-                <!-- Nowy link do forum -->
-                <a href="forum.html" class="nav-link">Forum</a>
+                <!-- Dodany link do sekcji forum -->
+                <a href="#forum" class="nav-link">Forum</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#join" class="nav-link">Dołącz do nas</a>
             </nav>
@@ -185,6 +185,28 @@
         </div>
     </section>
 
+    <!-- Nowa sekcja Forum -->
+    <section class="forum-coming-soon" id="forum">
+        <div class="container">
+            <h2 class="section-title">Forum <span>Społeczności</span></h2>
+            <div class="coming-soon-container">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Forum już wkrótce!</h3>
+                <p>Pracujemy nad uruchomieniem pełnoprawnego forum dla społeczności SlavicRP. Już wkrótce będziesz mógł:</p>
+                <ul class="coming-soon-features">
+                    <li><i class="fas fa-scroll"></i> Przeglądać ogłoszenia i aktualizacje</li>
+                    <li><i class="fas fa-comments"></i> Uczestniczyć w dyskusjach z innymi graczami</li>
+                    <li><i class="fas fa-city"></i> Prezentować swoją osadę</li>
+                    <li><i class="fas fa-user-plus"></i> Rekrutować nowych członków do klanu</li>
+                    <li><i class="fas fa-handshake"></i> Handlować na targu słowiańskim</li>
+                </ul>
+                <a href="#join" class="btn btn-accent forum-notify-btn"><i class="fas fa-bell"></i> Powiadom mnie o starcie forum</a>
+            </div>
+        </div>
+    </section>
+
     <section class="faq-section" id="faq">
         <div class="container">
             <h2 class="section-title">Często Zadawane <span>Pytania</span></h2>
@@ -293,8 +315,8 @@
                 <a href="#progress">Postęp prac</a>
                 <a href="#features">Funkcje</a>
                 <a href="#gallery">Galeria</a>
-                <!-- Nowy link do forum w stopce -->
-                <a href="forum.html">Forum</a>
+                <!-- Dodany link do sekcji forum w stopce -->
+                <a href="#forum">Forum</a>
                 <a href="#faq">FAQ</a>
                 <a href="#join">Dołącz do nas</a>
             </nav>
@@ -423,6 +445,12 @@
                 question.classList.toggle('active');
                 question.nextElementSibling.classList.toggle('show');
             });
+        });
+        
+        // Przycisk "Powiadom mnie o starcie forum"
+        document.querySelector('.forum-notify-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Aby otrzymywać powiadomienia o starcie forum i innych aktualnościach, dołącz do naszego serwera Discord. Tam będziemy informować o wszystkich nowościach!');
         });
     </script>
 </body>
