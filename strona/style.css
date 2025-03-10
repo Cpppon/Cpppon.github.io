@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Rye&family=Alfa+Slab+One&family=Amatic+SC:wght@700&family=Roboto+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Montserrat:wght@400;600;700&display=swap');
 
 :root {
-    --primary: #8B4513;      /* Brązowy (saddle brown) */
-    --primary-light: #A0522D; /* Sienna */
-    --primary-dark: #5C2E0D;  /* Ciemny brąz */
-    --secondary: #333333;    /* Szary */
+    --primary: #002868;      /* Niebieski teksański */
+    --primary-light: #0044AA; 
+    --primary-dark: #001A45;
+    --secondary: #222222;    /* Ciemny szary */
     --dark: #121212;         /* Głęboka czerń */
     --darker: #0A0A0A;
-    --light: #F5F5DC;        /* Beżowy (beige) */
+    --light: #F5F5F5;        /* Jasny biały */
     --gray: #707070;
-    --accent: #CD853F;       /* Peru (brązowo-złoty) */
-    --accent-dark: #B8860B;  /* Dark Goldenrod */
+    --accent: #BF0A30;       /* Czerwony teksański */
+    --accent-dark: #9D0022;  /* Ciemniejszy czerwony */
     --bg-overlay: rgba(18, 18, 18, 0.85);
-    --font-primary: 'Rye', cursive;
-    --font-secondary: 'Roboto Slab', serif;
+    --font-primary: 'Oswald', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
 }
 
 * {
@@ -36,7 +36,7 @@ body {
     background-color: var(--dark);
     color: var(--light);
     line-height: 1.6;
-    background-image: url('./images/texas-background.jpg');
+    background-image: url('./images/texas-skyline.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -53,7 +53,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(139, 69, 19, 0.3), rgba(10, 10, 10, 0.85));
+    background: radial-gradient(circle at center, rgba(0, 40, 104, 0.3), rgba(10, 10, 10, 0.9));
     z-index: -1;
 }
 
@@ -169,12 +169,11 @@ header {
     border-radius: 4px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     animation: fadeIn 1.2s ease-out forwards;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--primary);
     backdrop-filter: blur(5px);
     margin: 0 auto;
     width: 100%;
-    background-image: url('./images/leather-texture.jpg');
-    background-blend-mode: overlay;
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 40, 104, 0.4) 100%);
 }
 
 .hero-content::before {
@@ -184,14 +183,11 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    border: 1px solid var(--accent-dark);
+    border: 1px solid var(--accent);
     border-radius: 4px;
     pointer-events: none;
     transform: scale(1.03);
-    opacity: 0.7;
-    background-image: url('./images/rope-border.png');
-    background-size: 100% 100%;
-    background-position: center;
+    opacity: 0.5;
 }
 
 @keyframes fadeIn {
@@ -398,15 +394,24 @@ header {
 .about-card {
     background-color: rgba(18, 18, 18, 0.7);
     padding: 40px 30px;
-    border-radius: 0;
+    border-radius: 4px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border: 2px solid var(--accent);
-    background-image: url('./images/wood-texture.jpg');
-    background-blend-mode: overlay;
+    border: 1px solid var(--primary);
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
 }
 
 .about-card:hover {
@@ -579,17 +584,24 @@ header {
 .feature {
     background-color: rgba(18, 18, 18, 0.7);
     padding: 40px 30px;
-    border-radius: 0;
+    border-radius: 4px;
     transition: transform 0.3s, box-shadow 0.3s;
-    border: none;
+    border: 1px solid rgba(191, 10, 48, 0.3);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
     position: relative;
-    background-image: url('./images/wanted-poster.jpg');
-    background-size: cover;
-    background-blend-mode: overlay;
-    border: 8px solid transparent;
-    border-image: url('./images/wanted-poster-border.png') 20 round;
+    overflow: hidden;
+}
+
+.feature::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 .feature:hover {
