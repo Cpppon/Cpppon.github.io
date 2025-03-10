@@ -3,796 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fort Carson RP | GTA San Andreas Open.mp</title>
+    <title>Fort Carson RP - GTA San Andreas OpenMP Roleplay</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Alfa+Slab+One&family=Amatic+SC:wght@700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
     <header>
-        <div class="nav-container">
+        <div class="container header-container">
             <div class="logo">
                 <img src="./images/logo.png" alt="Fort Carson RP Logo">
-                <h1>Fort Carson<span>RP</span></h1>
+                Fort<span>Carson</span>RP
             </div>
-            <div class="menu-toggle">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">O serwerze</a></li>
-                    <li><a href="#features" class="nav-link">Funkcje</a></li>
-                    <li><a href="#factions" class="nav-link">Frakcje</a></li>
-                    <li><a href="#gallery" class="nav-link">Galeria</a></li>
-                    <li><a href="#faq" class="nav-link">FAQ</a></li>
-                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
-                </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">O serwerze</a>
+                <a href="#progress" class="nav-link">Postęp prac</a>
+                <a href="#features" class="nav-link">Funkcje</a>
+                <a href="#gallery" class="nav-link">Galeria</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#join" class="nav-link">Dołącz do nas</a>
             </nav>
-            <div class="connect-btn">
-                <a href="#" class="btn-connect">Połącz z serwerem</a>
-            </div>
         </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="video-bg">
-            <div class="overlay"></div>
-            <video autoplay muted loop>
-                <source src="./videos/background.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-content">
-            <h1 class="glitch" data-text="Fort Carson RP">Fort Carson RP</h1>
-            <p class="tagline">San Andreas Roleplay na platformie Open.mp</p>
-            <p class="description">Zanurz się w świecie realistycznego roleplay w Fort Carson. Wybierz swoją ścieżkę jako stróż prawa, przedsiębiorca, lekarz lub przestępca w tętniącym życiem środowisku GTA San Andreas.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary"><i class="fab fa-discord"></i> Dołącz do Discorda</a>
-                <a href="#about" class="btn-secondary">Dowiedz się więcej</a>
-            </div>
-            <div class="server-stats">
-                <div class="stat">
-                    <span class="stat-value">128</span>
-                    <span class="stat-label">Slotów</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">72</span>
-                    <span class="stat-label">Online</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">2,450</span>
-                    <span class="stat-label">Zarejestrowanych</span>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-down">
-            <a href="#about">
-                <span></span>
-                <span></span>
-                <span></span>
-            </a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
+    <section class="hero">
         <div class="container">
-            <div class="section-header">
-                <h2>O serwerze <span>Fort Carson RP</span></h2>
-                <p>Odkryj nowe doświadczenie roleplay w świecie GTA San Andreas</p>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="./images/fort-carson-map.jpg" alt="Fort Carson Map">
-                    <div class="about-overlay">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h3>Życie w Fort Carson</h3>
-                    <p>Fort Carson RP to immersyjny serwer roleplay oparty na platformie Open.mp, który przenosi graczy do tętniącego życiem miasta na pustyni San Andreas. Nasz serwer wyróżnia się:</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Zaawansowanymi systemami roleplay</li>
-                        <li><i class="fas fa-check"></i> Rozbudowaną ekonomią i rynkiem pracy</li>
-                        <li><i class="fas fa-check"></i> Zróżnicowanymi frakcjami i organizacjami</li>
-                        <li><i class="fas fa-check"></i> Dedykowaną administracją i pomocą dla nowych graczy</li>
-                        <li><i class="fas fa-check"></i> Regularnymi eventami i aktualizacjami</li>
-                    </ul>
-                    <p>Dołącz do nas i stwórz swoją własną historię w Fort Carson - miejscu, gdzie każda decyzja ma znaczenie, a każda postać może stać się legendą!</p>
-                    <div class="about-cta">
-                        <a href="#" class="btn-secondary">Poradnik dla początkujących</a>
-                    </div>
-                </div>
-            </div>
-            <div class="about-cards">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Rozbudowany świat</h3>
-                    <p>Fort Carson i okolice z setkami interaktywnych miejsc, sklepów, firm i kryjówek.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Aktywna społeczność</h3>
-                    <p>Dołącz do rosnącej społeczności graczy, którzy wspólnie budują świat Fort Carson RP.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Własne skrypty</h3>
-                    <p>Serwer działa na autorskich skryptach, które zapewniają unikalne doświadczenia.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Regularne eventy</h3>
-                    <p>Tygodniowe wydarzenia, konkursy i specjalne zadania z nagrodami.</p>
+            <div class="hero-content">
+                <h1>Fort Carson <span>OpenMP Roleplay</span></h1>
+                <p>Witaj w dzikim świecie Fort Carson! Wkrocz do realistycznego świata inspirowanego pustynnym krajobrazem Dzikiego Zachodu, gdzie możesz wcielić się w dowolną postać - od szeryfa, przez ranczera, po poszukiwacza ropy naftowej lub członka lokalnego gangu. Eksploruj rozległe pustkowia, prowadź własny interes i stwórz swoją legendę w naszym immersyjnym serwerze roleplay na platformie OpenMP.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-discord"><i class="fab fa-discord"></i> Dołącz na Discord</a>
+                    <a href="#progress" class="btn btn-secondary">Sprawdź postęp</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <section class="about" id="about">
         <div class="container">
-            <div class="section-header light">
-                <h2>Zaawansowane <span>funkcje</span></h2>
-                <p>Odkryj wyjątkowe systemy, które czekają na Ciebie w Fort Carson RP</p>
-            </div>
-            <div class="features-slider">
-                <div class="feature-slide">
-                    <div class="feature-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>System pojazdów</h3>
-                    <p>Realistyczny system pojazdów z uszkodzeniami, paliwem i tuningiem. Personalizuj swoje auto od silnika po karoserię.</p>
+            <h2 class="section-title">O Serwerze <span>Fort Carson RP</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Fort Carson RP to wyjątkowy projekt serwera GTA San Andreas na platformie OpenMP, który przenosi graczy w realistyczny świat teksańskiego pogranicza. Odtwarzamy realia życia na Dzikim Zachodzie z możliwością gry jako szeryf, ranczer, przedsiębiorca lub członek gangu.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Rozległy Teren</h3>
+                    <p>Eksploruj bezkresne pustkowia Teksasu - od pustynnych kanionów, przez rancza, po małe miasteczka. Każdy zakątek skrywa tajemnice do odkrycia i zasoby do wydobycia.</p>
                 </div>
-                <div class="feature-slide">
-                    <div class="feature-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Nieruchomości</h3>
-                    <p>Kupuj, wynajmuj i urządzaj domy oraz lokale biznesowe. Twórz interiory i zarabiaj na inwestycjach.</p>
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Teksańska Społeczność</h3>
+                    <p>Dołącz do społeczności prawdziwych teksańczyków. Nawiązuj kontakty w salonach, bierz udział w rodeo, handluj z innymi graczami i buduj swoją reputację w hrabstwie.</p>
                 </div>
-                <div class="feature-slide">
-                    <div class="feature-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Praca i kariera</h3>
-                    <p>Rozwijaj swoje umiejętności w ponad 15 profesjach, od kierowcy taksówki po prawnika czy lekarza.</p>
+                <div class="about-card">
+                    <i class="fas fa-hat-cowboy"></i>
+                    <h3>Życie na Zachodzie</h3>
+                    <p>Wybierz swoją ścieżkę kariery - od pracy jako szeryf, przez prowadzenie rancza, poszukiwanie ropy naftowej, po napady na dyliżanse. Każdy styl życia ma swój unikatowy system rozwoju.</p>
                 </div>
-                <div class="feature-slide">
-                    <div class="feature-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>System prawny</h3>
-                    <p>Rozbudowany system prawny z kodeksem karnym, sądami i więzieniem, gdzie każde przestępstwo ma konsekwencje.</p>
-                </div>
-                <div class="feature-slide">
-                    <div class="feature-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3>System medyczny</h3>
-                    <p>Zaawansowany system obrażeń z różnymi typami ran, chorobami i uzależnieniami wymagającymi specjalistycznego leczenia.</p>
-                </div>
-                <div class="feature-slide">
-                    <div class="feature-icon">
-                        <i class="fas fa-comment-alt"></i>
-                    </div>
-                    <h3>Komunikacja</h3>
-                    <p>System telefonów, czatu głosowego bliskości, radia, mediów społecznościowych i poczty.</p>
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-dots"></div>
-                <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
-    <section id="factions" class="factions">
+    <section class="progress-section" id="progress">
         <div class="container">
-            <div class="section-header">
-                <h2>Frakcje i <span>organizacje</span></h2>
-                <p>Wybierz swoją ścieżkę w Fort Carson</p>
-            </div>
-            <div class="faction-tabs">
-                <div class="faction-nav">
-                    <button class="faction-tab active" data-tab="law">Stróże prawa</button>
-                    <button class="faction-tab" data-tab="emergency">Służby ratunkowe</button>
-                    <button class="faction-tab" data-tab="gangs">Organizacje przestępcze</button>
-                    <button class="faction-tab" data-tab="civil">Frakcje cywilne</button>
+            <h2 class="section-title">Postęp <span>Prac</span></h2>
+            <div class="progress-container">
+                <p style="text-align: center; margin-bottom: 30px;">Nasz zespół z pasją pracuje nad tym, aby stworzyć autentyczny i immersyjny świat Fort Carson RP. Poniżej możesz zobaczyć aktualny postęp prac nad serwerem.</p>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar-title">
+                        <span>Całkowity postęp</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 35%;">
+                            <span class="progress-percentage">35%</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="faction-content">
-                    <div class="faction-panel active" id="law">
-                        <div class="faction-info">
-                            <div class="faction-image">
-                                <img src="./images/police.jpg" alt="Fort Carson Police Department">
-                            </div>
-                            <div class="faction-details">
-                                <h3>Fort Carson Police Department</h3>
-                                <p>Stań na straży prawa jako funkcjonariusz policji w Fort Carson. Patroluj ulice, prowadź śledztwa, ścigaj przestępców i dbaj o bezpieczeństwo mieszkańców.</p>
-                                <ul class="faction-features">
-                                    <li><i class="fas fa-user-shield"></i> System patroli i zgłoszeń</li>
-                                    <li><i class="fas fa-fingerprint"></i> Rozbudowany system śledztw</li>
-                                    <li><i class="fas fa-car-crash"></i> Specjalistyczny sprzęt i pojazdy</li>
-                                    <li><i class="fas fa-laptop"></i> Dostęp do baz danych i kartotek</li>
-                                </ul>
-                                <a href="#" class="btn-secondary">Dowiedz się więcej</a>
-                            </div>
-                        </div>
+                
+                <div class="status-list">
+                    <div class="status-item status-complete">
+                        <span class="status-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Zakup i konfiguracja serwera OpenMP</span>
                     </div>
-                    <div class="faction-panel" id="emergency">
-                        <div class="faction-info">
-                            <div class="faction-image">
-                                <img src="./images/ems.jpg" alt="Emergency Medical Services">
-                            </div>
-                            <div class="faction-details">
-                                <h3>Fort Carson Medical Center</h3>
-                                <p>Zostań ratownikiem medycznym lub lekarzem. Ratuj życie w nagłych wypadkach, prowadź zabiegi i operacje, lecz choroby i dbaj o zdrowie mieszkańców.</p>
-                                <ul class="faction-features">
-                                    <li><i class="fas fa-ambulance"></i> System wezwań pogotowia</li>
-                                    <li><i class="fas fa-stethoscope"></i> Diagnozowanie i leczenie chorób</li>
-                                    <li><i class="fas fa-procedures"></i> Operacje i rehabilitacja</li>
-                                    <li><i class="fas fa-pills"></i> Farmakologia i badania</li>
-                                </ul>
-                                <a href="#" class="btn-secondary">Dowiedz się więcej</a>
-                            </div>
-                        </div>
+                    <div class="status-item status-complete">
+                        <span class="status-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Instalacja podstawowych skryptów</span>
                     </div>
-                    <div class="faction-panel" id="gangs">
-                        <div class="faction-info">
-                            <div class="faction-image">
-                                <img src="./images/gang.jpg" alt="Criminal Organizations">
-                            </div>
-                            <div class="faction-details">
-                                <h3>Organizacje przestępcze</h3>
-                                <p>Dołącz do jednego z gangów lub mafii działających w Fort Carson. Zajmuj się nielegalnym handlem, napadami, wymuszeniami i walką o terytoria.</p>
-                                <ul class="faction-features">
-                                    <li><i class="fas fa-mask"></i> System terytoriów i wojen gangów</li>
-                                    <li><i class="fas fa-pills"></i> Produkcja i handel narkotykami</li>
-                                    <li><i class="fas fa-money-bill-wave"></i> Napady i wymuszenia</li>
-                                    <li><i class="fas fa-warehouse"></i> Przemyt i czarny rynek</li>
-                                </ul>
-                                <a href="#" class="btn-secondary">Dowiedz się więcej</a>
-                            </div>
-                        </div>
+                    <div class="status-item status-progress">
+                        <span class="status-icon"><i class="fas fa-spinner fa-spin"></i></span>
+                        <span>Tworzenie teksańskich miasteczek i rancz</span>
                     </div>
-                    <div class="faction-panel" id="civil">
-                        <div class="faction-info">
-                            <div class="faction-image">
-                                <img src="./images/business.jpg" alt="Civil Factions">
-                            </div>
-                            <div class="faction-details">
-                                <h3>Frakcje cywilne</h3>
-                                <p>Rozwijaj legalne biznesy jako część różnych organizacji cywilnych. Prowadź firmę transportową, mechaniczną, prawniczą lub medialną.</p>
-                                <ul class="faction-features">
-                                    <li><i class="fas fa-truck"></i> Firmy transportowe i logistyczne</li>
-                                    <li><i class="fas fa-wrench"></i> Warsztaty mechaniczne</li>
-                                    <li><i class="fas fa-gavel"></i> Kancelarie prawne</li>
-                                    <li><i class="fas fa-newspaper"></i> Media i reklama</li>
-                                </ul>
-                                <a href="#" class="btn-secondary">Dowiedz się więcej</a>
-                            </div>
-                        </div>
+                    <div class="status-item status-progress">
+                        <span class="status-icon"><i class="fas fa-spinner fa-spin"></i></span>
+                        <span>System hodowli bydła i wydobycia ropy</span>
+                    </div>
+                    <div class="status-item status-pending">
+                        <span class="status-icon"><i class="fas fa-clock"></i></span>
+                        <span>Implementacja rodeo i strzelnic</span>
+                    </div>
+                    <div class="status-item status-pending">
+                        <span class="status-icon"><i class="fas fa-clock"></i></span>
+                        <span>Testy i optymalizacja</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="stats" class="progress">
+    <section class="features" id="features">
         <div class="container">
-            <div class="progress-content">
-                <div class="progress-item">
-                    <div class="progress-circle" data-percent="85">
-                        <svg>
-                            <circle class="progress-circle-bg" cx="70" cy="70" r="65"></circle>
-                            <circle class="progress-circle-fill" cx="70" cy="70" r="65" style="stroke-dashoffset: calc(408 - (408 * 85) / 100);"></circle>
-                        </svg>
-                        <div class="progress-text">
-                            <span class="progress-value">85%</span>
-                            <span class="progress-label">Ukończone</span>
-                        </div>
-                    </div>
+            <h2 class="section-title">Funkcje <span>Serwera</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Fort Carson RP oferuje wiele unikalnych funkcji, które wzbogacają rozgrywkę i zapewniają autentyczne doświadczenie życia w świecie GTA San Andreas.</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-hat-cowboy"></i>
+                    <h3>System Postaci</h3>
+                    <p>Zaawansowany system kreacji teksańskiej postaci z możliwością posiadania kilku postaci na jednym koncie. Każda postać ma swoje umiejętności, historię i reputację w hrabstwie.</p>
                 </div>
-                <div class="progress-info">
-                    <h3>Postęp prac nad serwerem</h3>
-                    <div class="progress-bars">
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>Systemy podstawowe</span>
-                                <span>100%</span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-fill" style="width: 100%;"></div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>Systemy frakcji</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-fill" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>Ekonomia i biznes</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-fill" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>Mapa i interior</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-fill" style="width: 75%;"></div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>Optymalizacja</span>
-                                <span>65%</span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-fill" style="width: 65%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Planowana data otwarcia: <span class="highlight">15 maja 2025</span></p>
+                <div class="feature">
+                    <i class="fas fa-horse"></i>
+                    <h3>System Transportu</h3>
+                    <p>Realistyczny system koni i pojazdów z dbaniem o wierzchowce, wymianą opon i customizacją. Kupuj, sprzedawaj i ulepszaj swoje środki transportu.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-comment-dots"></i>
+                    <h3>Immersyjny Roleplay</h3>
+                    <p>Rozbudowany system komend roleplay (/me, /do, /ooc) pozwalający na odgrywanie swojej postaci w autentycznym teksańskim stylu, wraz z lokalnym slangiem i zwyczajami.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-home"></i>
+                    <h3>Rancza i Posiadłości</h3>
+                    <p>Możliwość zakupu rancz, domostw i salonów. Hoduj bydło, uprawiaj ziemię lub prowadź własny biznes generujący dochód, jak prawdziwy teksański przedsiębiorca.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-oil-well"></i>
+                    <h3>Wydobycie Surowców</h3>
+                    <p>Odkrywaj złoża ropy naftowej, zakładaj szyby naftowe i buduj imperium paliwowe. Alternatywnie możesz też prowadzić kopalnię lub poszukiwać złota w pobliskich kanionach.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-flask-vial"></i>
+                    <h3>Produkcja Whiskey</h3>
+                    <p>Zaawansowany system produkcji teksańskiej whiskey. Uprawiaj składniki, destyluj alkohol i sprzedawaj go w salonach lub eksportuj do innych regionów, budując markę swojego trunku.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
+    <section class="gallery-section" id="gallery">
         <div class="container">
-            <div class="section-header light">
-                <h2>Galeria <span>projektu</span></h2>
-                <p>Poznaj świat Fort Carson RP przed oficjalną premierą</p>
-            </div>
-            <div class="gallery-filter">
-                <button class="gallery-category active" data-filter="all">Wszystko</button>
-                <button class="gallery-category" data-filter="locations">Lokacje</button>
-                <button class="gallery-category" data-filter="vehicles">Pojazdy</button>
-                <button class="gallery-category" data-filter="interiors">Wnętrza</button>
-                <button class="gallery-category" data-filter="events">Wydarzenia</button>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="locations">
-                    <img src="./images/gallery1.jpg" alt="Fort Carson Main Street">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Główna ulica Fort Carson</h3>
-                            <p>Centrum miasta z licznymi sklepami i firmami</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
+            <h2 class="section-title">Galeria <span>Projektu</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Zajrzyj do naszej galerii, aby zobaczyć postęp prac nad serwerem Fort Carson RP. Publikujemy regularnie nowe zdjęcia, aby być na bieżąco z rozwojem projektu.</p>
+            <p style="text-align: center; margin-top: 15px; color: var(--accent); font-style: italic;">
+                <i class="fas fa-info-circle"></i> Kliknij na dowolny obrazek, aby zobaczyć więcej szczegółów i informacji!
+            </p>
+            
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-full="./images/full1.jpg" data-title="Nowy system szeryfów już dostępny!" data-description="Rozwijaj swoją karierę jako stróż prawa! Postęp w rangach szeryfowskich jest teraz widoczny w procentach w twoim profilu. Wprowadziliśmy system ścigania przestępców, wystawiania listów gończych i organizowania pościgów konnych za zbiegami po bezkresnych pustkowiach Teksasu.">
+                        <img src="./images/thumbnail1.jpg" alt="System szeryfów">
+                        <div class="gallery-caption">System szeryfów</div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="vehicles">
-                    <img src="./images/gallery2.jpg" alt="Police Vehicles">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Flota policyjna</h3>
-                            <p>Specjalnie zmodyfikowane radiowozy FCPD</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
+                    <div class="gallery-item" data-full="./images/full2.jpg" data-title="System hodowli bydła już dostępny!" data-description="Zarządzaj swoim stadem i dbaj o jego kondycję! Hoduj bydło, wypasaj je na pastwiskach i sprzedawaj na aukcjach. Organizuj przegony bydła do odległych miast, chroniąc zwierzęta przed złodziejami i naturalnymi zagrożeniami.">
+                        <img src="./images/thumbnail2.jpg" alt="System hodowli">
+                        <div class="gallery-caption">System hodowli</div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="interiors">
-                    <img src="./images/gallery3.jpg" alt="Police Station Interior">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Komenda policji</h3>
-                            <p>Wnętrze komendy z salą odpraw i aresztem</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="events">
-                    <img src="./images/gallery4.jpg" alt="Street Race Event">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Nielegalne wyścigi</h3>
-                            <p>Nocne wyścigi na obrzeżach Fort Carson</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="locations">
-                    <img src="./images/gallery5.jpg" alt="Desert Outskirts">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Pustynia wokół Fort Carson</h3>
-                            <p>Idealne miejsce dla sekretnych spotkań i transakcji</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="interiors">
-                    <img src="./images/gallery6.jpg" alt="Luxury Home Interior">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Luksusowy dom</h3>
-                            <p>Jeden z dostępnych do kupienia interiorów</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="vehicles">
-                    <img src="./images/gallery7.jpg" alt="Custom Vehicles">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Tuningowane pojazdy</h3>
-                            <p>Możliwości modyfikacji samochodów</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="events">
-                    <img src="./images/gallery8.jpg" alt="Bank Robbery">
-                    <div class="gallery-overlay">
-                        <div class="gallery-info">
-                            <h3>Napad na bank</h3>
-                            <p>Policja w akcji podczas napadu na bank</p>
-                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-                        </div>
+                    <div class="gallery-item" data-full="./images/full3.jpg" data-title="System rodeo już aktywny!" data-description="Bierz udział w zawodach rodeo i zdobywaj nagrody! System jazdy na dzikich mustangach i byłach jest już dostępny. Trenuj swoje umiejętności, zdobywaj lepszy sprzęt i rywalizuj z innymi graczami o tytuł najlepszego kowboja w Teksasie!">
+                        <img src="./images/thumbnail3.jpg" alt="System rodeo">
+                        <div class="gallery-caption">System rodeo</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="faq">
+    <section class="faq-section" id="faq">
         <div class="container">
-            <div class="section-header">
-                <h2>Często zadawane <span>pytania</span></h2>
-                <p>Wszystko, co musisz wiedzieć przed dołączeniem do Fort Carson RP</p>
-            </div>
+            <h2 class="section-title">Często Zadawane <span>Pytania</span></h2>
+            
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Kiedy serwer zostanie otwarty?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        <span>Kiedy serwer zostanie uruchomiony?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Planujemy otwarcie serwera 15 maja 2025 roku. Wcześniej przeprowadzimy fazę beta-testów, do której będzie można dołączyć za pośrednictwem naszego Discorda.</p>
+                        <p>Przewidujemy, że serwer zostanie uruchomiony w wersji beta na przełomie kwietnia i maja 2025 roku. Będziemy informować o dokładnej dacie na naszym Discordzie, dlatego zachęcamy do dołączenia, aby być na bieżąco!</p>
                     </div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Jakie są wymagania techniczne do gry?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        <span>Jak zainstalować OpenMP, żeby dołączyć do Fort Carson?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Potrzebujesz legalnej kopii GTA San Andreas oraz klienta Open.mp, który można pobrać za darmo z oficjalnej strony. Wymagania sprzętowe są minimalne, gra działa nawet na słabszych komputerach.</p>
+                        <p>Aby dołączyć do naszego teksańskiego serwera, potrzebujesz oryginalnej gry GTA San Andreas oraz platformy OpenMP. Na naszym Discordzie znajdziesz szczegółowy poradnik instalacji oraz link do ściągnięcia odpowiedniej wersji klienta OpenMP kompatybilnej z naszym serwerem. Dodatkowo oferujemy opcjonalny pakiet modyfikacji z teksańskimi teksturami i modelami.</p>
                     </div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Czy mogę dołączyć do zespołu developerskiego?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        <span>Czy mogę dołączyć do zespołu tworzącego serwer?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Tak! Poszukujemy skrypterów Pawn, modelarzy 3D, grafików i administratorów. Jeśli posiadasz doświadczenie w którejś z tych dziedzin, skontaktuj się z nami na Discordzie.</p>
+                        <p>Tak! Poszukujemy pasjonatów GTA San Andreas i roleplay, a także osób z doświadczeniem w programowaniu skryptów Pawn, zarządzaniu społecznością i tworzeniu treści. Jeśli chcesz dołączyć do naszego zespołu, skontaktuj się z nami na Discordzie!</p>
                     </div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Jak wygląda proces whitelisty?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        <span>Czy potrzebuję doświadczenia w roleplayu?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Na serwerze obowiązuje whitelist. Aby dołączyć, musisz wypełnić aplikację na naszej stronie lub Discordzie, która zawiera podstawowe pytania dotyczące roleplay oraz krótką historię postaci. Po zatwierdzeniu aplikacji, przechodzisz krótką rozmowę z administratorem.</p>
+                        <p>Nie jest wymagane wcześniejsze doświadczenie w roleplayu. Przygotowaliśmy szczegółowy poradnik dla początkujących, a nasza społeczność jest przyjazna i chętnie pomoże nowym graczom. Jedyne, czego potrzebujesz, to chęć do zabawy i szacunek dla innych graczy.</p>
                     </div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Czy serwer posiada własne modyfikacje?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        <span>Czy serwer będzie miał modyfikacje graficzne?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Tak, serwer korzysta z wielu autorskich modyfikacji, które znacząco poprawiają jakość rozgrywki. Modyfikacje te są automatycznie pobierane przy pierwszym połączeniu z serwerem.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Czy potrzebuję doświadczenia w roleplay?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nie jest wymagane wcześniejsze doświadczenie, ale podstawowa znajomość zasad roleplay jest mile widziana. Dla nowych graczy przygotowaliśmy szczegółowy poradnik oraz system mentoringu. Najważniejsze to chęć nauki i szacunek dla innych graczy.</p>
+                        <p>Tak, pracujemy nad pakietem modyfikacji graficznych poprawiających jakość gry, dodających nowe tekstury, pojazdy i modele postaci. Pakiet będzie dostępny do pobrania przy łączeniu z serwerem, ale jego używanie będzie opcjonalne (choć zalecane dla lepszego doświadczenia).</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section class="join-section" id="join">
         <div class="container">
-            <div class="section-header light">
-                <h2>Dołącz do <span>społeczności</span></h2>
-                <p>Rozpocznij swoją przygodę w Fort Carson już dziś</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-discord"></i>
-                        </div>
-                        <h3>Discord</h3>
-                        <p>Dołącz do naszego serwera Discord, aby być na bieżąco z wszystkimi informacjami.</p>
-                        <a href="#" class="btn-primary">Dołącz teraz</a>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Serwer</h3>
-                        <p>Połącz się z naszym serwerem przez Open.mp, używając adresu:</p>
-                        <div class="server-address">
-                            <span id="server-ip">play.fortcarsonrp.com:7777</span>
-                            <button class="copy-btn" onclick="copyServerIP()"><i class="fas fa-copy"></i></button>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Kontakt</h3>
-                        <p>Masz pytania? Skontaktuj się z nami przez formularz na Discordzie lub email:</p>
-                        <a href="mailto:contact@fortcarsonrp.com" class="contact-email">contact@fortcarsonrp.com</a>
-                    </div>
+            <div class="join-container">
+                <h2 class="section-title">Dołącz do <span>Nas</span></h2>
+                <p>Dołącz do naszej społeczności na Discordzie, aby być na bieżąco z postępem prac, uczestniczyć w podejmowaniu decyzji dotyczących serwera i poznać innych graczy!</p>
+                
+                <div class="ip-display" style="margin-top: 30px;">
+                    <p id="server-ip-footer">fort-carson-rp.com:7777</p>
+                    <button class="copy-btn" onclick="copyIPFooter()"><i class="fas fa-copy"></i></button>
                 </div>
-                <div class="social-media">
-                    <h3>Śledź nas</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                    </div>
+                
+                <div class="join-buttons">
+                    <a href="https://discord.gg/TWOJ-LINK-DISCORD" target="_blank" class="btn btn-discord"><i class="fab fa-discord"></i> Dołącz do Discorda</a>
+                    <a href="#" class="btn btn-accent"><i class="fas fa-book"></i> Przewodnik dla początkujących</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="cta-banner">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Gotowy do gry?</h2>
-                <p>Dołącz do naszej społeczności i zacznij swoją przygodę w Fort Carson!</p>
-                <a href="#" class="btn-primary">Dołącz teraz <i class="fas fa-arrow-right"></i></a>
+    <!-- Modal (wyskakujące okno) do wyświetlania powiększonych obrazów -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title" class="modal-title">Tytuł obrazu</h3>
+            <div class="modal-image-container">
+                <img id="modal-image" class="modal-image" src="" alt="Powiększony obraz">
+            </div>
+            <div id="modal-description" class="modal-description">
+                Opis obrazu pojawi się tutaj...
             </div>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <img src="./images/logo.png" alt="Fort Carson RP Logo">
-                    <h2>Fort Carson<span>RP</span></h2>
-                </div>
-                <div class="footer-nav">
-                    <div class="footer-nav-column">
-                        <h3>Nawigacja</h3>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">O serwerze</a></li>
-                            <li><a href="#features">Funkcje</a></li>
-                            <li><a href="#factions">Frakcje</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-column">
-                        <h3>Społeczność</h3>
-                        <ul>
-                            <li><a href="#">Discord</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Regulamin</a></li>
-                            <li><a href="#">Whitelist</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-column">
-                        <h3>Zasoby</h3>
-                        <ul>
-                            <li><a href="#">Poradnik dla początkujących</a></li>
-                            <li><a href="#">Mapa Fort Carson</a></li>
-                            <li><a href="#">Komendy serwera</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-column">
-                        <h3>Kontakt</h3>
-                        <ul>
-                            <li><a href="#">Wsparcie</a></li>
-                            <li><a href="#">Współpraca</a></li>
-                            <li><a href="#">Rekrutacja</a></li>
-                            <li><a href="#">Media</a></li>
-                        </ul>
-                    </div>
+            <div class="footer-logo">Fort<span>Carson</span>RP</div>
+            
+            <nav class="footer-nav">
+                <a href="#about">O serwerze</a>
+                <a href="#progress">Postęp prac</a>
+                <a href="#features">Funkcje</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#faq">FAQ</a>
+                <a href="#join">Dołącz do nas</a>
+            </nav>
+            
+            <div class="footer-social">
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; 2025 Fort Carson RP. Wszelkie prawa zastrzeżone.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#">Polityka prywatności</a>
-                    <a href="#">Warunki korzystania</a>
-                    <a href="#">Cookies</a>
-                </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2025 Fort Carson RP - Wszelkie prawa zastrzeżone | Yeehaw, Partner!</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal galerii -->
-    <div class="gallery-modal">
-        <span class="gallery-close"><i class="fas fa-times"></i></span>
-        <div class="gallery-modal-content">
-            <img src="" id="gallery-modal-img">
-            <div class="gallery-modal-caption">
-                <h3 id="gallery-modal-title"></h3>
-                <p id="gallery-modal-desc"></p>
-            </div>
-        </div>
-        <button class="gallery-prev"><i class="fas fa-chevron-left"></i></button>
-        <button class="gallery-next"><i class="fas fa-chevron-right"></i></button>
-    </div>
-
     <script>
-        // Menu mobilne
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-        
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mainNav.classList.toggle('active');
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Zamknij menu mobilne po kliknięciu
-                menuToggle.classList.remove('active');
-                mainNav.classList.remove('active');
-            });
-        });
-
-        // Animacja nawigacji przy scrollowaniu
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
-            
-            // Aktywna sekcja w nawigacji
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Przełączanie zakładek frakcji
-        const factionTabs = document.querySelectorAll('.faction-tab');
-        const factionPanels = document.querySelectorAll('.faction-panel');
-        
-        factionTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Usuwamy aktywną klasę ze wszystkich zakładek
-                factionTabs.forEach(t => t.classList.remove('active'));
-                
-                // Dodajemy aktywną klasę do klikniętej zakładki
-                tab.classList.add('active');
-                
-                // Pokazujemy odpowiedni panel
-                const tabId = tab.getAttribute('data-tab');
-                
-                factionPanels.forEach(panel => {
-                    panel.classList.remove('active');
-                });
-                
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Filtrowanie galerii
-        const galleryFilters = document.querySelectorAll('.gallery-category');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        galleryFilters.forEach(filter => {
-            filter.addEventListener('click', () => {
-                // Usuwamy aktywną klasę ze wszystkich filtrów
-                galleryFilters.forEach(f => f.classList.remove('active'));
-                
-                // Dodajemy aktywną klasę do klikniętego filtra
-                filter.classList.add('active');
-                
-                // Filtrujemy elementy galerii
-                const filterValue = filter.getAttribute('data-filter');
-                
-                galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // FAQ Accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const faqIcon = question.querySelector('.faq-icon i');
-                
-                // Zamykamy wszystkie inne pytania
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                        item.querySelector('.faq-icon i').classList.remove('fa-minus');
-                        item.querySelector('.faq-icon i').classList.add('fa-plus');
-                    }
-                });
-                
-                // Przełączamy aktualnie kliknięte pytanie
-                faqItem.classList.toggle('active');
-                
-                if (faqItem.classList.contains('active')) {
-                    faqIcon.classList.remove('fa-plus');
-                    faqIcon.classList.add('fa-minus');
-                } else {
-                    faqIcon.classList.remove('fa-minus');
-                    faqIcon.classList.add('fa-plus');
-                }
-            });
-        });
-
-        // Kopiowanie IP serwera
-        function copyServerIP() {
+        // Funkcja kopiowania IP serwera
+        function copyIP() {
             const ip = document.getElementById('server-ip').textContent;
             navigator.clipboard.writeText(ip)
                 .then(() => {
@@ -802,104 +323,103 @@
                     console.error('Nie udało się skopiować IP: ', err);
                 });
         }
-
-        // Modal galerii
-        const galleryModal = document.querySelector('.gallery-modal');
-        const galleryModalImg = document.getElementById('gallery-modal-img');
-        const galleryModalTitle = document.getElementById('gallery-modal-title');
-        const galleryModalDesc = document.getElementById('gallery-modal-desc');
-        const galleryClose = document.querySelector('.gallery-close');
-        const galleryPrev = document.querySelector('.gallery-prev');
-        const galleryNext = document.querySelector('.gallery-next');
-        let currentIndex = 0;
         
-        // Otwieranie modala
-        document.querySelectorAll('.gallery-zoom').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const galleryItem = item.closest('.gallery-item');
-                const img = galleryItem.querySelector('img').src;
-                const title = galleryItem.querySelector('.gallery-info h3').textContent;
-                const desc = galleryItem.querySelector('.gallery-info p').textContent;
+        function copyIPFooter() {
+            const ip = document.getElementById('server-ip-footer').textContent;
+            navigator.clipboard.writeText(ip)
+                .then(() => {
+                    alert('Adres IP skopiowany do schowka!');
+                })
+                .catch(err => {
+                    console.error('Nie udało się skopiować IP: ', err);
+                });
+        }
+        
+        // Obsługa menu mobilnego
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Płynne przewijanie do sekcji po kliknięciu linku
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-                galleryModalImg.src = img;
-                galleryModalTitle.textContent = title;
-                galleryModalDesc.textContent = desc;
-                galleryModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                currentIndex = index;
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Zamknij menu mobilne po kliknięciu linku
+                navMenu.classList.remove('active');
             });
         });
         
-        // Zamykanie modala
-        galleryClose.addEventListener('click', () => {
-            galleryModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // Funkcje obsługi modalu z obrazami
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modal-image");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDescription = document.getElementById("modal-description");
+        
+        // Dodajemy listenery do wszystkich elementów galerii
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const fullImage = this.getAttribute('data-full');
+                const title = this.getAttribute('data-title');
+                const description = this.getAttribute('data-description');
+                openModal(fullImage, title, description);
+            });
         });
         
-        // Zamykanie modala przez kliknięcie poza zdjęciem
-        galleryModal.addEventListener('click', (e) => {
-            if (e.target === galleryModal) {
-                galleryModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        // Funkcja otwierająca modal
+        function openModal(imageSrc, title, description) {
+            modal.style.display = "block";
+            modalImg.src = imageSrc || "https://via.placeholder.com/800x600?text=Pełny+widok";
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            document.body.style.overflow = "hidden"; // Blokuje przewijanie strony pod modalem
+        }
+        
+        // Funkcja zamykająca modal
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Przywraca przewijanie strony
+        }
+        
+        // Zamykanie modala po kliknięciu poza jego zawartością
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // Obsługa zamykania modalu klawiszem ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && modal.style.display === "block") {
+                closeModal();
             }
         });
         
-        // Navigacja w modalu
-        galleryPrev.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-            updateModalContent();
-        });
+        // Obsługa FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
         
-        galleryNext.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % galleryItems.length;
-            updateModalContent();
-        });
-        
-        function updateModalContent() {
-            const item = galleryItems[currentIndex];
-            const img = item.querySelector('img').src;
-            const title = item.querySelector('.gallery-info h3').textContent;
-            const desc = item.querySelector('.gallery-info p').textContent;
-            
-            galleryModalImg.src = img;
-            galleryModalTitle.textContent = title;
-            galleryModalDesc.textContent = desc;
-        }
-
-        // Kursor niestandardowy
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-        
-        // Efekt naciśnięcia na elementy interaktywne
-        const links = document.querySelectorAll('a, button, .gallery-item, .faq-question');
-        
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursor.classList.add('active');
-                cursorFollower.classList.add('active');
-            });
-            
-            link.addEventListener('mouseleave', () => {
-                cursor.classList.remove('active');
-                cursorFollower.classList.remove('active');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                // Zamykamy wszystkie inne pytania
+                faqQuestions.forEach(item => {
+                    if (item !== question) {
+                        item.classList.remove('active');
+                        item.nextElementSibling.classList.remove('show');
+                    }
+                });
+                
+                // Przełączamy aktualnie kliknięte pytanie
+                question.classList.toggle('active');
+                question.nextElementSibling.classList.toggle('show');
             });
         });
-        
-        // Ukryj kursor niestandardowy na urządzeniach mobilnych
-        if ('ontouchstart' in window) {
-            cursor.style.display = 'none';
-            cursorFollower.style.display = 'none';
-        }
     </script>
 </body>
 </html>
