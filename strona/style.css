@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&display=swap');
 
 :root {
-    --primary: #9B2226;      /* Głęboka czerwień */
-    --primary-light: #BB3E3E; 
-    --primary-dark: #6A0F0F;
-    --secondary: #2B4141;    /* Ciemna zieleń/grafit */
+    --primary: #8b4513;      /* Brązowy/Terakota - nawiązujący do pustyni Fort Carson */
+    --primary-light: #a05c2c; 
+    --primary-dark: #653008;
+    --secondary: #2b3f2b;    /* Ciemna zieleń - nawiązuje do koloru mapy SA */
     --dark: #121212;         /* Głęboka czerń */
     --darker: #0A0A0A;
     --light: #E9E6E1;        /* Przygaszony biały */
     --gray: #707070;
-    --accent: #D4A017;       /* Stare złoto */
-    --accent-dark: #A87B11;
+    --accent: #daa520;       /* Złoty - nawiązujący do dolara/kasy w GTA */
+    --accent-dark: #b8860b;
     --bg-overlay: rgba(18, 18, 18, 0.92);
     --font-primary: 'Grenze Gotisch', serif;
     --font-secondary: 'Grenze Gotisch', serif;
@@ -157,7 +157,7 @@ header {
     border-radius: 4px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     animation: fadeIn 1.2s ease-out forwards;
-    border: 1px solid rgba(212, 160, 23, 0.3);
+    border: 1px solid rgba(218, 165, 32, 0.3);
     backdrop-filter: blur(5px);
     margin: 0 auto;
     width: 100%;
@@ -170,7 +170,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    border: 1px solid rgba(212, 160, 23, 0.3);
+    border: 1px solid rgba(218, 165, 32, 0.3);
     border-radius: 4px;
     pointer-events: none;
     transform: scale(1.03);
@@ -199,9 +199,9 @@ header {
 }
 
 @keyframes slowPulse {
-    0% { text-shadow: 0 0 5px rgba(212, 160, 23, 0.5); }
-    50% { text-shadow: 0 0 20px rgba(212, 160, 23, 0.8), 0 0 30px rgba(212, 160, 23, 0.4); }
-    100% { text-shadow: 0 0 5px rgba(212, 160, 23, 0.5); }
+    0% { text-shadow: 0 0 5px rgba(218, 165, 32, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(218, 165, 32, 0.8), 0 0 30px rgba(218, 165, 32, 0.4); }
+    100% { text-shadow: 0 0 5px rgba(218, 165, 32, 0.5); }
 }
 
 .hero p {
@@ -292,7 +292,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid rgba(212, 160, 23, 0.4);
+    border: 1px solid rgba(218, 165, 32, 0.4);
     backdrop-filter: blur(5px);
 }
 
@@ -320,8 +320,8 @@ header {
 .about {
     padding: 100px 0;
     background-color: var(--bg-overlay);
-    border-top: 1px solid rgba(212, 160, 23, 0.3);
-    border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
+    border-bottom: 1px solid rgba(218, 165, 32, 0.3);
     position: relative;
 }
 
@@ -381,7 +381,7 @@ header {
     position: relative;
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(212, 160, 23, 0.2);
+    border: 1px solid rgba(218, 165, 32, 0.2);
 }
 
 .about-card:hover {
@@ -423,7 +423,7 @@ header {
     background-color: rgba(18, 18, 18, 0.85);
     padding: 50px 40px;
     border-radius: 4px;
-    border: 1px solid rgba(212, 160, 23, 0.3);
+    border: 1px solid rgba(218, 165, 32, 0.3);
     max-width: 800px;
     margin: 0 auto;
     backdrop-filter: blur(10px);
@@ -441,7 +441,7 @@ header {
 .progress-bar {
     width: 100%;
     height: 12px;
-    background-color: rgba(212, 160, 23, 0.1);
+    background-color: rgba(218, 165, 32, 0.1);
     border-radius: 6px;
     overflow: hidden;
     position: relative;
@@ -524,8 +524,8 @@ header {
 .features {
     padding: 100px 0;
     background-color: var(--bg-overlay);
-    border-top: 1px solid rgba(212, 160, 23, 0.3);
-    border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
+    border-bottom: 1px solid rgba(218, 165, 32, 0.3);
     position: relative;
 }
 
@@ -555,7 +555,7 @@ header {
     padding: 40px 30px;
     border-radius: 4px;
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(212, 160, 23, 0.2);
+    border: 1px solid rgba(218, 165, 32, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -563,7 +563,7 @@ header {
 .feature:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(212, 160, 23, 0.4);
+    border-color: rgba(218, 165, 32, 0.4);
 }
 
 .feature i {
@@ -611,7 +611,7 @@ header {
     border-radius: 4px;
     overflow: hidden;
     height: 200px;
-    border: 1px solid rgba(212, 160, 23, 0.3);
+    border: 1px solid rgba(218, 165, 32, 0.3);
     transition: all 0.4s;
     cursor: pointer;
     position: relative;
@@ -633,6 +633,37 @@ header {
 
 .gallery-item:hover img {
     transform: scale(1.1);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(10, 10, 10, 0.85);
+    color: var(--light);
+    padding: 12px;
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: transform 0.4s;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 10, 10, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .gallery-item:hover::before {
@@ -660,25 +691,6 @@ header {
     opacity: 1;
 }
 
-.gallery-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(10, 10, 10, 0.85);
-    color: var(--light);
-    padding: 12px;
-    font-size: 0.9rem;
-    transform: translateY(100%);
-    transition: transform 0.4s;
-    backdrop-filter: blur(5px);
-    border-top: 1px solid rgba(212, 160, 23, 0.3);
-}
-
-.gallery-item:hover .gallery-caption {
-    transform: translateY(0);
-}
-
 /* Modal */
 .modal {
     display: none;
@@ -699,7 +711,7 @@ header {
     background-color: rgba(18, 18, 18, 0.95);
     margin: 5% auto;
     padding: 40px;
-    border: 1px solid rgba(212, 160, 23, 0.3);
+    border: 1px solid rgba(218, 165, 32, 0.3);
     border-radius: 4px;
     width: 80%;
     max-width: 800px;
@@ -719,7 +731,7 @@ header {
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(212, 160, 23, 0.2);
+    border: 1px solid rgba(218, 165, 32, 0.2);
 }
 
 .modal-image {
@@ -765,140 +777,12 @@ header {
     cursor: pointer;
 }
 
-/* Coming Soon Forum Section */
-.forum-coming-soon {
-    padding: 100px 0;
-    background-color: var(--bg-overlay);
-    border-top: 1px solid rgba(212, 160, 23, 0.3);
-    border-bottom: 1px solid rgba(212, 160, 23, 0.3);
-    position: relative;
-}
-
-.forum-coming-soon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./images/texture.jpg');
-    background-size: 200px;
-    background-repeat: repeat;
-    opacity: 0.03;
-    z-index: -1;
-}
-
-.coming-soon-container {
-    max-width: 800px;
-    margin: 40px auto 0;
-    background-color: rgba(18, 18, 18, 0.7);
-    padding: 50px 40px;
-    border-radius: 4px;
-    text-align: center;
-    border: 1px solid rgba(212, 160, 23, 0.3);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.coming-soon-container::before {
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color: var(--primary-dark);
-    opacity: 0.1;
-    border-radius: 50%;
-    top: -100px;
-    left: -100px;
-    z-index: -1;
-}
-
-.coming-soon-container::after {
-    content: '';
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background-color: var(--accent-dark);
-    opacity: 0.1;
-    border-radius: 50%;
-    bottom: -70px;
-    right: -70px;
-    z-index: -1;
-}
-
-.coming-soon-icon {
-    font-size: 4rem;
-    color: var(--accent);
-    margin-bottom: 20px;
-    animation: pulseIcon 3s infinite;
-}
-
-@keyframes pulseIcon {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
-}
-
-.coming-soon-container h3 {
-    font-size: 2rem;
-    color: var(--light);
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-.coming-soon-container p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.coming-soon-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-.coming-soon-features li {
-    background-color: rgba(18, 18, 18, 0.6);
-    padding: 12px 20px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(212, 160, 23, 0.2);
-    transition: all 0.3s;
-}
-
-.coming-soon-features li:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.coming-soon-features li i {
-    color: var(--accent);
-    font-size: 1.1rem;
-}
-
-.forum-notify-btn {
-    font-size: 1.1rem;
-    padding: 12px 30px;
-}
-
 /* Join Us Section */
 .join-section {
     padding: 100px 0;
     text-align: center;
     background-color: var(--bg-overlay);
-    border-top: 1px solid rgba(212, 160, 23, 0.3);
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
     position: relative;
 }
 
@@ -956,7 +840,7 @@ header {
     font-size: 1.2rem;
     transition: all 0.3s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(212, 160, 23, 0.3);
+    border: 1px solid rgba(218, 165, 32, 0.3);
 }
 
 .social-links a:hover {
@@ -1032,7 +916,7 @@ footer {
     background-color: rgba(10, 10, 10, 0.95);
     padding: 60px 0 30px;
     text-align: center;
-    border-top: 1px solid rgba(212, 160, 23, 0.3);
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
     margin-top: auto;
     position: relative;
 }
@@ -1156,19 +1040,6 @@ footer::before {
     
     .section-title {
         font-size: 2rem;
-    }
-    
-    .coming-soon-features {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .coming-soon-container {
-        padding: 30px 20px;
-    }
-    
-    .coming-soon-container h3 {
-        font-size: 1.8rem;
     }
 }
 
