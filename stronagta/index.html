@@ -804,23 +804,29 @@
             bottom: 20px;
             right: 20px;
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
+            padding: 10px 15px;
             border: 2px solid var(--gta-orange);
             display: flex;
             align-items: center;
             gap: 10px;
             z-index: 100;
+            max-width: 400px;
         }
 
         .radio-icon {
             color: var(--gta-orange);
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .radio-text {
             color: var(--gta-white);
             font-family: 'Anton', sans-serif;
             font-size: 0.9rem;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .radio-btn {
@@ -834,6 +840,7 @@
             align-items: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .radio-btn:hover {
@@ -902,6 +909,13 @@
 
             .footer-content {
                 flex-direction: column;
+            }
+            
+            .radio {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: calc(100% - 20px);
             }
         }
     </style>
@@ -1263,9 +1277,12 @@
         <div class="radio-icon">
             <i class="fas fa-music"></i>
         </div>
-        <div class="radio-text">RADIO LOS SANTOS</div>
-        <button class="radio-btn"><i class="fas fa-play"></i></button>
-        <button class="radio-btn"><i class="fas fa-forward"></i></button>
+        <div class="radio-text">K-ROSE</div>
+        <button class="radio-btn" id="play-btn"><i class="fas fa-play"></i></button>
+        <button class="radio-btn" id="next-btn"><i class="fas fa-forward"></i></button>
+        
+        <!-- Dodany element audio -->
+        <audio id="radio-player" style="display: none;"></audio>
     </div>
 
     <!-- Wasted Screen -->
@@ -1289,7 +1306,7 @@
                 
                 menu.classList.remove('active');
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoGet({
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
@@ -1318,20 +1335,78 @@
             }
         });
 
-        // Radio Station Toggle
-        const radioBtn = document.querySelector('.radio-btn');
+        // Radio Station - kod dla wielu utworów
+        const radioPlayer = document.getElementById('radio-player');
+        const playBtn = document.getElementById('play-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const radioText = document.querySelector('.radio-text');
         let isPlaying = false;
+        let currentTrack = 0;
 
-        radioBtn.addEventListener('click', () => {
-            isPlaying = !isPlaying;
+        // Lista utworów K-ROSE
+        const kroseTracks = [
+            { title: "01-Jerry Reed - Amos Moses", file: "audio/01-Jerry Reed - Amos Moses.mp3" },
+            { title: "02-Conway Twitty & Loretta Lynn - Louisiana Woman", file: "audio/02-Conway Twitty & Loretta Lynn - Louisiana Woman, Mississippi Man.mp3" },
+            { title: "03-Hank Williams, Sr. - Hey Good Lookin'", file: "audio/03-Hank Williams, Sr. - Hey Good Lookin'.mp3" },
+            { title: "04-Juice Newton - Queen Of Hearts", file: "audio/04-Juice Newton - Queen Of Hearts.mp3" },
+            { title: "05-Asleep At The Wheel - The Letter That Johnny Walker Read", file: "audio/05-Asleep At The Wheel - The Letter That Johnny Walker Read.mp3" },
+            { title: "06-The Desert Rose Band - One Step Forward", file: "audio/06-The Desert Rose Band - One Step Forward (Two Steps Back).mp3" },
+            { title: "07-Willie Nelson - Crazy", file: "audio/07-Willie Nelson - Crazy.mp3" },
+            { title: "08-Patsy Cline - Three Cigarettes In The Ashtray", file: "audio/08-Patsy Cline - Three Cigarettes In The Ashtray.mp3" },
+            { title: "09-Mickey Gilley - Make The World Go Away", file: "audio/09-Mickey Gilley - Make The World Go Away.mp3" },
+            { title: "10-Ed Bruce - Mammas Don't Let Your Babies Grow Up To Be Cowboys", file: "audio/10-Ed Bruce - Mammas Don't Let Your Babies Grow Up To Be Cowboys.mp3" },
+            { title: "11-Merle Haggard - Always Wanting You", file: "audio/11-Merle Haggard - Always Wanting You.mp3" },
+            { title: "12-Whitey Shafer - All My Ex's Live In Texas", file: "audio/12-Whitey Shafer - All My Ex's Live In Texas.mp3" },
+            { title: "13-Eddie Rabbit - I Love A Rainy Night", file: "audio/13-Eddie Rabbit - I Love A Rainy Night.mp3" },
+            { title: "14-The Statler Brothers - New York City", file: "audio/14-The Statler Brothers - New York City.mp3" },
+            { title: "15-The Statler Brothers - Bed Of Roses", file: "audio/15-The Statler Brothers - Bed Of Roses.mp3" }
+        ];
+
+        // Funkcja ładująca utwór
+        function loadTrack(index) {
+            radioPlayer.src = kroseTracks[index].file;
+            radioText.textContent = kroseTracks[index].title;
+            
+            // Gdy utwór się skończy, przejdź do następnego
+            radioPlayer.onended = function() {
+                nextTrack();
+            };
+        }
+
+        // Funkcja do przejścia do następnego utworu
+        function nextTrack() {
+            currentTrack = (currentTrack + 1) % kroseTracks.length;
+            loadTrack(currentTrack);
             
             if (isPlaying) {
-                radioBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                // Here you would actually play music
-            } else {
-                radioBtn.innerHTML = '<i class="fas fa-play"></i>';
-                // Here you would pause music
+                radioPlayer.play()
+                    .catch(e => {
+                        console.error("Problem z odtwarzaniem audio: ", e);
+                    });
             }
+        }
+
+        // Załaduj pierwszy utwór na starcie
+        loadTrack(currentTrack);
+
+        // Przycisk Play/Pause
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                radioPlayer.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                radioPlayer.play()
+                    .catch(e => {
+                        console.error("Problem z odtwarzaniem audio: ", e);
+                    });
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Przycisk Next
+        nextBtn.addEventListener('click', () => {
+            nextTrack();
         });
     </script>
 </body>
