@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fort Carson Roleplay - GTA San Andreas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Pricedown&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'GTA';
+            src: url('https://fonts.cdnfonts.com/css/pricedown') format('woff2');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gta-orange: #FF9C00;
+            --gta-green: #699E3C;
+            --gta-blue: #4C75B7;
+            --gta-red: #E03232;
+            --gta-yellow: #FFD700;
+            --gta-black: #111111;
+            --gta-white: #EEEEEE;
+            --gta-gray: #333333;
+            --gta-brown: #5D4434;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: var(--gta-white);
+            background-color: #000000;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gta-white);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 0 var(--gta-black), 
+                         -1px -1px 0 var(--gta-black),  
+                         1px -1px 0 var(--gta-black),
+                         -1px 1px 0 var(--gta-black),
+                         1px 1px 0 var(--gta-black);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--gta-orange);
+            text-shadow: 2px 2px 0 var(--gta-black);
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--gta-orange);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--gta-yellow);
+            text-shadow: 2px 2px 0 var(--gta-black);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--gta-orange);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--gta-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-left: 15px;
+            text-shadow: 2px 2px 0 var(--gta-black);
+        }
+
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(2px 2px 0 var(--gta-black));
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu-item {
+            margin: 0 10px;
+        }
+
+        .menu-link {
+            font-family: 'Anton', sans-serif;
+            color: var(--gta-white);
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 8px 15px;
+            position: relative;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-link:hover {
+            color: var(--gta-orange);
+        }
+
+        .menu-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gta-orange);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .menu-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--gta-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 5rem;
+            color: var(--gta-white);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            line-height: 1;
+            text-shadow: 3px 3px 0 var(--gta-black), 
+                         -1px -1px 0 var(--gta-black),  
+                         1px -1px 0 var(--gta-black),
+                         -1px 1px 0 var(--gta-black),
+                         1px 1px 0 var(--gta-black);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gta-white);
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0 var(--gta-black);
+        }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 25px;
+            background: var(--gta-orange);
+            color: var(--gta-white);
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 0 var(--gta-black);
+            box-shadow: 0 4px 0 var(--gta-black);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 0 var(--gta-black);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 var(--gta-black);
+        }
+
+        .btn-secondary {
+            background: var(--gta-blue);
+        }
+
+        /* Stars Rating */
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .star {
+            width: 30px;
+            height: 30px;
+            background-color: var(--gta-yellow);
+            margin: 0 5px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); }
+            100% { transform: scale(1.05); }
+        }
+
+        .star:nth-child(1) { animation-delay: 0s; }
+        .star:nth-child(2) { animation-delay: 0.2s; }
+        .star:nth-child(3) { animation-delay: 0.4s; }
+        .star:nth-child(4) { animation-delay: 0.6s; }
+        .star:nth-child(5) { animation-delay: 0.8s; }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-desc {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+            color: var(--gta-white);
+            font-size: 1.2rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            border: 3px solid var(--gta-orange);
+            transition: all 0.3s ease;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--gta-orange);
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--gta-yellow);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--gta-orange);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gta-yellow);
+        }
+
+        .feature-desc {
+            color: var(--gta-white);
+        }
+
+        /* World Section */
+        .factions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .faction-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--gta-orange);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faction-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .criminal {
+            border-color: var(--gta-red);
+        }
+
+        .business {
+            border-color: var(--gta-green);
+        }
+
+        .public {
+            border-color: var(--gta-blue);
+        }
+
+        .faction-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .faction-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .faction-card:hover .faction-img img {
+            transform: scale(1.1);
+        }
+
+        .faction-content {
+            padding: 20px;
+        }
+
+        .faction-type {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--gta-orange);
+            color: var(--gta-white);
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .criminal .faction-type {
+            background-color: var(--gta-red);
+        }
+
+        .business .faction-type {
+            background-color: var(--gta-green);
+        }
+
+        .public .faction-type {
+            background-color: var(--gta-blue);
+        }
+
+        .faction-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .criminal .faction-title {
+            color: var(--gta-red);
+        }
+
+        .business .faction-title {
+            color: var(--gta-green);
+        }
+
+        .public .faction-title {
+            color: var(--gta-blue);
+        }
+
+        .faction-desc {
+            color: var(--gta-white);
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 3px 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--gta-white);
+            font-size: 0.8rem;
+            border-radius: 3px;
+        }
+
+        /* Development Section */
+        .dev-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/development-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            margin: 50px 0;
+            text-align: center;
+            border: 3px solid var(--gta-orange);
+        }
+
+        .dev-icon {
+            font-size: 3rem;
+            color: var(--gta-orange);
+            margin-bottom: 20px;
+        }
+
+        .dev-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--gta-orange);
+        }
+
+        .dev-desc {
+            color: var(--gta-white);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--gta-orange);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 65%;
+            height: 100%;
+            background-color: var(--gta-orange);
+            animation: progress-anim 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes progress-anim {
+            0% { width: 60%; }
+            100% { width: 70%; }
+        }
+
+        /* Join Section */
+        .join {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 80px 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--gta-orange);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gta-yellow);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: var(--gta-orange);
+            color: var(--gta-white);
+            border: 2px solid var(--gta-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--gta-orange);
+            margin: 10px 0 20px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gta-yellow);
+        }
+
+        .step-desc {
+            color: var(--gta-white);
+        }
+
+        /* Vision Section */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .vision-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--gta-orange);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--gta-yellow);
+        }
+
+        .vision-icon {
+            font-size: 2.5rem;
+            color: var(--gta-orange);
+            margin-bottom: 20px;
+        }
+
+        .vision-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gta-yellow);
+        }
+
+        .vision-desc {
+            color: var(--gta-white);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--gta-orange);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--gta-orange);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 10px;
+        }
+
+        .footer-link a {
+            color: var(--gta-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link a:hover {
+            color: var(--gta-orange);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--gta-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background-color: var(--gta-orange);
+            transform: translateY(-5px);
+        }
+
+        .footer-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .footer-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--gta-white);
+            outline: none;
+        }
+
+        .footer-btn {
+            padding: 10px 20px;
+            background-color: var(--gta-orange);
+            color: var(--gta-white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .footer-btn:hover {
+            background-color: var(--gta-yellow);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* GTA Style Loading Bar */
+        .loading-bar {
+            height: 5px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: var(--gta-black);
+            z-index: 9999;
+        }
+
+        .loader {
+            height: 100%;
+            width: 0;
+            background-color: var(--gta-orange);
+            animation: loading 2s ease-in-out forwards;
+        }
+
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* Wasted Screen Effect */
+        .wasted {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .wasted.show {
+            opacity: 1;
+        }
+
+        .wasted-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 5rem;
+            color: var(--gta-red);
+            text-shadow: 3px 3px 0 var(--gta-black);
+            animation: wasted-anim 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes wasted-anim {
+            0% { transform: scale(0.95); }
+            100% { transform: scale(1.05); }
+        }
+
+        /* Radio Station Style Audio Controller */
+        .radio {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border: 2px solid var(--gta-orange);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .radio-icon {
+            color: var(--gta-orange);
+            font-size: 1.5rem;
+        }
+
+        .radio-text {
+            color: var(--gta-white);
+            font-family: 'Anton', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .radio-btn {
+            background-color: var(--gta-orange);
+            border: none;
+            color: var(--gta-white);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-btn:hover {
+            background-color: var(--gta-yellow);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.5s ease;
+                z-index: 200;
+            }
+
+            .menu.active {
+                right: 0;
+            }
+
+            .menu-item {
+                margin: 20px 0;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .stars {
+                margin: 20px 0;
+            }
+
+            .star {
+                width: 20px;
+                height: 20px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .feature-grid,
+            .factions,
+            .vision-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .dev-banner {
+                padding: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Bar -->
+    <div class="loading-bar">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Fort Carson RP Logo">
+                    <span class="logo-text">Fort Carson RP</span>
+                </div>
+                <ul class="menu" id="menu">
+                    <li class="menu-item"><a href="#about" class="menu-link">O Serwerze</a></li>
+                    <li class="menu-item"><a href="#world" class="menu-link">Świat Gry</a></li>
+                    <li class="menu-item"><a href="#join" class="menu-link">Rozwój</a></li>
+                    <li class="menu-item"><a href="#vision" class="menu-link">Wizja</a></li>
+                    <li class="menu-item"><a href="#contact" class="menu-link">Kontakt</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Fort Carson Roleplay</h1>
+            <p class="hero-subtitle">Nadchodzi wyjątkowy serwer roleplay w GTA San Andreas. Przejmij kontrolę nad miasteczkiem w sercu pustyni!</p>
+            <div class="btns">
+                <a href="#" class="btn">Dołącz na Discord</a>
+            </div>
+            <div class="stars">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>O Serwerze</h2>
+                <p class="section-desc">Fort Carson Roleplay to nowy rozdział w świecie GTA San Andreas - wyjątkowe doświadczenie osadzone w klimatycznym miasteczku na pustyni.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="images/fort-carson.jpg" alt="Fort Carson">
+                </div>
+                <div class="about-text">
+                    <h3>Witaj w Fort Carson!</h3>
+                    <p>Położone w sercu pustyni Bone County, to niewielkie miasto stanie się areną niesamowitych historii i interakcji między graczami. Nasz zespół pracuje nad stworzeniem immersyjnego świata, gdzie każdy znajdzie coś dla siebie.</p>
+                    <p>Wizją naszego serwera jest stworzenie miejsca, gdzie gracze będą mieli prawdziwą wolność kształtowania społeczności Fort Carson. Projekt zakłada różnorodne ścieżki kariery, od biznesu przez politykę, aż po działalność w półświatku.</p>
+                </div>
+            </div>
+
+                <div class="dev-banner">
+                <div class="dev-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <h3 class="dev-title">Serwer w ciągłym rozwoju</h3>
+                <p class="dev-desc">Fort Carson Roleplay jest projektem, który nieustannie ewoluuje. Pracujemy nad stworzeniem unikalnego doświadczenia roleplay, regularnie wprowadzając nowe funkcje.</p>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <a href="#" class="btn">Dołącz na Discord</a>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Życie społeczności</h3>
+                    <p class="feature-desc">Twórz związki, przyjaźnie i rywalizacje w dynamicznym środowisku społecznym</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="feature-title">Ekonomia</h3>
+                    <p class="feature-desc">Realistyczny system ekonomiczny oparty na podaży i popycie</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Unikalne lokalizacje</h3>
+                    <p class="feature-desc">Odkrywaj sekretne miejsca w Fort Carson i okolicach</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="feature-title">Nieruchomości</h3>
+                    <p class="feature-desc">Kupuj i personalizuj domy, apartamenty i lokale biznesowe</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="feature-title">Pojazdy</h3>
+                    <p class="feature-desc">Zaawansowany system pojazdów z unikalnymi modyfikacjami</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="feature-title">Historia</h3>
+                    <p class="feature-desc">Odkryj fabułę Fort Carson i wpływaj na rozwój wydarzeń</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- World Section -->
+    <section class="section" id="world">
+        <div class="container">
+            <div class="section-header">
+                <h2>Świat Fort Carson</h2>
+                <p class="section-desc">W naszej wizji Fort Carson będzie tętniącym życiem ekosystemem różnorodnych frakcji i grup interesów</p>
+            </div>
+
+            <div class="factions">
+                <div class="faction-card criminal">
+                    <div class="faction-img">
+                        <img src="images/criminal-faction.jpg" alt="Półświatek">
+                    </div>
+                    <div class="faction-content">
+                        <span class="faction-type">Półświatek</span>
+                        <h3 class="faction-title">Życie poza prawem</h3>
+                        <p class="faction-desc">Fort Carson skrywa mroczną stronę, gdzie rządzą różne grupy przestępcze. W tej wizji gracze będą mogli dołączać do istniejących frakcji lub budować własne struktury w półświatku.</p>
+                        <div class="tags">
+                            <span class="tag">Gangi</span>
+                            <span class="tag">Przemyt</span>
+                            <span class="tag">Napady</span>
+                            <span class="tag">Podziemie</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faction-card business">
+                    <div class="faction-img">
+                        <img src="images/business-faction.jpg" alt="Biznes">
+                    </div>
+                    <div class="faction-content">
+                        <span class="faction-type">Biznes</span>
+                        <h3 class="faction-title">Świat przedsiębiorczości</h3>
+                        <p class="faction-desc">Planujemy stworzyć bogaty ekosystem biznesowy, gdzie gracze będą mogli prowadzić legalne interesy - od małych sklepików po duże korporacje.</p>
+                        <div class="tags">
+                            <span class="tag">Handel</span>
+                            <span class="tag">Usługi</span>
+                            <span class="tag">Produkcja</span>
+                            <span class="tag">Inwestycje</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faction-card public">
+                    <div class="faction-img">
+                        <img src="images/public-faction.jpg" alt="Służby publiczne">
+                    </div>
+                    <div class="faction-content">
+                        <span class="faction-type">Służby publiczne</span>
+                        <h3 class="faction-title">Strażnicy porządku</h3>
+                        <p class="faction-desc">Planujemy rozbudowany system służb publicznych, gdzie gracze będą mogli wcielić się w role policjantów, medyków, strażaków czy urzędników.</p>
+                        <div class="tags">
+                            <span class="tag">Ochrona</span>
+                            <span class="tag">Pomoc</span>
+                            <span class="tag">Administracja</span>
+                            <span class="tag">Sprawiedliwość</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join" id="join">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proces rozwoju</h2>
+                <p class="section-desc">Fort Carson Roleplay jest projektem, który cały czas się rozwija. Śledź nasze postępy i zaangażuj się!</p>
+            </div>
+
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="step-title">Bieżące prace</h3>
+                    <p class="step-desc">Obecnie pracujemy nad podstawowymi mechanizmami rozgrywki i integracją systemów roleplay.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="step-title">Społeczność</h3>
+                    <p class="step-desc">Dołącz do naszego Discorda, aby być na bieżąco z aktualnymi postępami rozwoju serwera.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="step-title">Sugestie</h3>
+                    <p class="step-desc">Podziel się swoimi pomysłami i opiniami - najlepsze będą implementowane w serwerze.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="step-title">Ankiety społecznościowe</h3>
+                    <p class="step-desc">Regularnie pytamy społeczność o zdanie na temat kierunków rozwoju serwera.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="section" id="vision">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nasza Wizja</h2>
+                <p class="section-desc">Odkryj co planujemy wprowadzić do Fort Carson Roleplay</p>
+            </div>
+
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="vision-title">Dynamiczny świat</h3>
+                    <p class="vision-desc">Środowisko reagujące na działania graczy, zmieniające się pory dnia, warunki pogodowe i wydarzenia losowe.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="vision-title">System interakcji</h3>
+                    <p class="vision-desc">Rozbudowane możliwości dialogów, gestów i relacji między postaciami, wpływające na reputację i możliwości.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="vision-title">System konsekwencji</h3>
+                    <p class="vision-desc">Mechanizmy pamięci świata, gdzie każda decyzja ma znaczenie i wpływa na przyszłe wydarzenia.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3 class="vision-title">Frakcje i sojusze</h3>
+                    <p class="vision-desc">System dynamicznych relacji między grupami, umożliwiający tworzenie sojuszy, rywalizacji i wojen.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="vision-title">Rozwój postaci</h3>
+                    <p class="vision-desc">Unikalne ścieżki kariery, specjalizacje i umiejętności zdobywane przez doświadczenie w świecie gry.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="vision-title">Polityka miasta</h3>
+                    <p class="vision-desc">System wyborów, stanowisk i decyzji politycznych mających realny wpływ na funkcjonowanie Fort Carson.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Fort Carson RP Logo">
+                        <span class="logo-text">Fort Carson RP</span>
+                    </div>
+                    <p style="margin-top: 20px; color: rgba(255, 255, 255, 0.7);">Nadchodzi wyjątkowy serwer roleplay w GTA San Andreas. Przejmij kontrolę nad miasteczkiem Fort Carson!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Nawigacja</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#about">O Serwerze</a></li>
+                        <li class="footer-link"><a href="#world">Świat Gry</a></li>
+                        <li class="footer-link"><a href="#join">Rozwój</a></li>
+                        <li class="footer-link"><a href="#vision">Nasza Wizja</a></li>
+                        <li class="footer-link"><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Przydatne linki</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Serwer Discord</a></li>
+                        <li class="footer-link"><a href="#">Pobierz SA-MP</a></li>
+                        <li class="footer-link"><a href="#">FAQ</a></li>
+                        <li class="footer-link"><a href="#">Aktualności</a></li>
+                        <li class="footer-link"><a href="#">Dla deweloperów</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Zapisz się, aby otrzymywać najnowsze informacje o rozwoju serwera.</p>
+                    <form class="footer-form">
+                        <input type="email" placeholder="Twój email" class="footer-input">
+                        <button type="submit" class="footer-btn">Zapisz</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Fort Carson Roleplay | Projekt w ciągłym rozwoju | Dołącz do zespołu!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Radio Station -->
+    <div class="radio">
+        <div class="radio-icon">
+            <i class="fas fa-music"></i>
+        </div>
+        <div class="radio-text">RADIO LOS SANTOS</div>
+        <button class="radio-btn"><i class="fas fa-play"></i></button>
+        <button class="radio-btn"><i class="fas fa-forward"></i></button>
+    </div>
+
+    <!-- Wasted Screen -->
+    <div class="wasted" id="wasted">
+        <div class="wasted-text">WASTED</div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                menu.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoGet({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Easter Egg: Show Wasted Screen on a specific key combination
+        let konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konami[konamiIndex]) {
+                konamiIndex++;
+                
+                if (konamiIndex === konami.length) {
+                    const wasted = document.getElementById('wasted');
+                    wasted.classList.add('show');
+                    
+                    setTimeout(() => {
+                        wasted.classList.remove('show');
+                    }, 3000);
+                    
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        // Radio Station Toggle
+        const radioBtn = document.querySelector('.radio-btn');
+        let isPlaying = false;
+
+        radioBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                radioBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                // Here you would actually play music
+            } else {
+                radioBtn.innerHTML = '<i class="fas fa-play"></i>';
+                // Here you would pause music
+            }
+        });
+    </script>
+</body>
+</html>
